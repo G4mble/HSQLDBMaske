@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<list>
+	<map>
+		<name>gareth</name>
+		<url>testUrl</url>
+		<position>
+			<koordinate>
+				<xPos>543</xPos>
+				<yPos>123</yPos>
+			</koordinate>
+			<koordinate>
+				<xPos>123</xPos>
+				<yPos>123</yPos>
+			</koordinate>
+		</position>
+	</map>
+	<map>
+		<name>gareth</name>
+		<url>data//img//gareth.png</url>
+		<position>
+			<koordinate>
+				<xPos>567</xPos>
+				<yPos>745</yPos>
+			</koordinate>
+		</position>
+	</map>
+</list>
