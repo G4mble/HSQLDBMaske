@@ -5,7 +5,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
@@ -65,13 +64,12 @@ public class XMLWriter
             }
             i++;
 
-            outerloop:
             while(paramPos.charAt(i) != '\n')
             {
                 yPos += paramPos.charAt(i);
                 i++;
                 if(i >= posLength)
-                    break outerloop;
+                    break;
             }
             i++;
 

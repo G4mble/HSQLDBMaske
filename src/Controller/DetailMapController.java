@@ -25,8 +25,8 @@ public class DetailMapController implements ActionListener
             this.resetView();
         else if(e.getActionCommand().equals("back"))
         {
-            this.detailMapView.dispose();
             this.programController.backToMenu();
+            this.detailMapView.dispose();
         }
     }
 
@@ -42,8 +42,8 @@ public class DetailMapController implements ActionListener
     {
         this.detailMapView.getTxtfName().setText("");
         this.detailMapView.getTxtfUrl().setText("");
-        this.detailMapView.getTxtrConsole().setText("");
         this.detailMapView.getTxtrPositionen().setText("");
+        this.detailMapView.getTxtrConsole().setText("Reset erfolgreich.");
     }
 
     public DetailMapView getDetailMapView()

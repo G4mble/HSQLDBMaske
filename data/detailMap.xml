@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<list>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><list>
 	<map>
 		<name>gareth</name>
 		<url>testUrl</url>
@@ -24,4 +23,4 @@
 			</koordinate>
 		</position>
 	</map>
-</list>
+<map><name>testName</name><url>data//img//detail//testUrl</url><position><koordinate><xPos>123</xPos><yPos>456</yPos></koordinate></position></map><map><name>testName</name><url>data//img//detail//testUrl</url><position><koordinate><xPos>123</xPos><yPos>456</yPos></koordinate><koordinate><xPos>789</xPos><yPos>101</yPos></koordinate></position></map></list>
