@@ -33,7 +33,7 @@ public class DetailMapController implements ActionListener
     public void addElement()
     {
         String name = this.detailMapView.getTxtfName().getText();
-        String url = "data//img//detail//" + this.detailMapView.getTxtfUrl().getText();
+        String url = "data//img//map//detail//" + this.detailMapView.getTxtfUrl().getText();
         String pos = this.detailMapView.getTxtrPositionen().getText();
         this.programController.getXmlWriter().addDetailMap(name, url, pos);
     }
