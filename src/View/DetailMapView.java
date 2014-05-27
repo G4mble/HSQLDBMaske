@@ -13,11 +13,11 @@ public class DetailMapView extends JFrame
     public DetailMapView(DetailMapController paramDetailMapController)
     {
         setTitle("DetailMap");
-        setSize(new Dimension(275, 290));
+        setSize(new Dimension(300, 315));
         getContentPane().setLayout(null);
 
         JLabel lblKonsole = new JLabel("Konsole:");
-        lblKonsole.setBounds(10, 87, 58, 14);
+        lblKonsole.setBounds(10, 107, 58, 14);
         getContentPane().add(lblKonsole);
 
         JLabel lblName = new JLabel("Name:");
@@ -25,12 +25,20 @@ public class DetailMapView extends JFrame
         getContentPane().add(lblName);
 
         JLabel lblUrl = new JLabel("URL:");
-        lblUrl.setBounds(10, 62, 46, 14);
+        lblUrl.setBounds(10, 64, 46, 14);
         getContentPane().add(lblUrl);
 
         JLabel lblPositionen = new JLabel("Positionen:");
-        lblPositionen.setBounds(174, 11, 70, 14);
+        lblPositionen.setBounds(194, 11, 70, 14);
         getContentPane().add(lblPositionen);
+
+        JLabel lblDetail = new JLabel("detail_%");
+        lblDetail.setBounds(78, 11, 64, 14);
+        getContentPane().add(lblDetail);
+
+        JLabel lblDataimgdetailpng = new JLabel("data//img//map//detail//%.png");
+        lblDataimgdetailpng.setBounds(20, 82, 174, 14);
+        getContentPane().add(lblDataimgdetailpng);
 
         txtfName = new JTextField();
         txtfName.setBounds(78, 31, 86, 20);
@@ -39,33 +47,33 @@ public class DetailMapView extends JFrame
         txtfName.setColumns(10);
 
         txtfUrl = new JTextField();
-        txtfUrl.setBounds(78, 62, 86, 20);
+        txtfUrl.setBounds(78, 61, 86, 20);
         getContentPane().add(txtfUrl);
         txtfUrl.setColumns(10);
 
         txtrPositionen = new JTextArea();
-        txtrPositionen.setBounds(174, 31, 80, 185);
+        txtrPositionen.setBounds(194, 31, 80, 205);
         getContentPane().add(txtrPositionen);
 
         txtrConsole = new JTextArea();
-        txtrConsole.setBounds(10, 111, 154, 105);
+        txtrConsole.setBounds(10, 131, 154, 105);
         txtrConsole.setEditable(false);
         getContentPane().add(txtrConsole);
 
         JButton btnAdd = new JButton("add");
-        btnAdd.setBounds(184, 227, 58, 23);
+        btnAdd.setBounds(194, 247, 58, 23);
         btnAdd.addActionListener(paramDetailMapController);
         btnAdd.setActionCommand("add");
         getContentPane().add(btnAdd);
 
         JButton btnReset = new JButton("reset");
-        btnReset.setBounds(100, 227, 64, 23);
+        btnReset.setBounds(100, 247, 64, 23);
         btnReset.addActionListener(paramDetailMapController);
         btnReset.setActionCommand("reset");
         getContentPane().add(btnReset);
 
         JButton btnBack = new JButton("back");
-        btnBack.setBounds(20, 227, 64, 23);
+        btnBack.setBounds(10, 247, 64, 23);
         btnBack.addActionListener(paramDetailMapController);
         btnBack.setActionCommand("back");
         getContentPane().add(btnBack);
