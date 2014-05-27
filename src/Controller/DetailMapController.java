@@ -33,7 +33,7 @@ public class DetailMapController implements ActionListener
     public void addElement()
     {
         String name = "detail_" + this.detailMapView.getTxtfName().getText();
-        String url = "data//img//map//detail//" + this.detailMapView.getTxtfUrl().getText() + ".png";
+        String url = "data//img//map//detail//detailMap_" + name + ".png";
         String pos = this.detailMapView.getTxtrPositionen().getText();
         this.programController.getXmlWriter().addDetailMap(name, url, pos);
     }
@@ -41,7 +41,6 @@ public class DetailMapController implements ActionListener
     public void resetView()
     {
         this.detailMapView.getTxtfName().setText("");
-        this.detailMapView.getTxtfUrl().setText("");
         this.detailMapView.getTxtrPositionen().setText("");
         this.detailMapView.getTxtrConsole().setText("Reset erfolgreich.");
     }
