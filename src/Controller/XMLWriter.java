@@ -30,6 +30,11 @@ public class XMLWriter
         this.verifyXml(paramFileName);
     }
 
+    public XMLWriter(ProgramController paramProgramController)
+    {
+        this.programController = paramProgramController;
+    }
+
     public void addDetailMap(String paramName, String paramUrl, String paramPos)
     {
         NodeList rootList = doc.getElementsByTagName("list");
@@ -97,6 +102,11 @@ public class XMLWriter
         {
             this.programController.getDetailMapController().getDetailMapView().getTxtrConsole().append("Fehler bei hinzufügen von map.\n");
         }
+    }
+
+    public void addCharacter(String paramName)
+    {
+        this.verifyXml("data//char_" + paramName + ".xml");
     }
 
     public void verifyXml(String url)

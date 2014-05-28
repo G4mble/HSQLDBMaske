@@ -3,6 +3,7 @@ package View;
 import Controller.DetailMapController;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 
 public class DetailMapView extends JFrame
@@ -12,10 +13,6 @@ public class DetailMapView extends JFrame
 
     public DetailMapView(DetailMapController paramDetailMapController)
     {
-        setTitle("DetailMap");
-        setSize(new Dimension(300, 303));
-        getContentPane().setLayout(null);
-
         JLabel lblKonsole = new JLabel("Konsole:");
         lblKonsole.setBounds(10, 62, 58, 14);
         getContentPane().add(lblKonsole);
@@ -35,16 +32,18 @@ public class DetailMapView extends JFrame
         txtfName = new JTextField();
         txtfName.setBounds(78, 31, 86, 20);
         txtfName.requestFocusInWindow();
+        txtfName.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtfName);
-        txtfName.setColumns(10);
 
         txtrPositionen = new JTextArea();
         txtrPositionen.setBounds(194, 31, 80, 181);
+        txtrPositionen.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtrPositionen);
 
         txtrConsole = new JTextArea();
         txtrConsole.setBounds(10, 86, 154, 126);
         txtrConsole.setEditable(false);
+        txtrConsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtrConsole);
 
         JButton btnAdd = new JButton("add");
@@ -65,6 +64,9 @@ public class DetailMapView extends JFrame
         btnBack.setActionCommand("back");
         getContentPane().add(btnBack);
 
+        this.setTitle("DetailMap_template");
+        this.setSize(new Dimension(300, 303));
+        this.getContentPane().setLayout(null);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setResizable(false);
