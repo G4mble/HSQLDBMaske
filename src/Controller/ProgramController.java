@@ -9,7 +9,7 @@ public class ProgramController implements ActionListener
 {
     private MenuView menuView;
     private DetailMapController detailMapController;
-    private XMLWriter xmlWriter;
+    private DBController dbController;
     private CharacterController characterController;
 
     public ProgramController()
@@ -42,13 +42,12 @@ public class ProgramController implements ActionListener
     public void detailMap()
     {
         this.detailMapController = new DetailMapController(this);
-        this.xmlWriter = new XMLWriter(this, "data//detailMap.xml");
+        this.dbController = new DBController(this);
     }
 
     public void charakter()
     {
         this.characterController = new CharacterController(this);
-        this.xmlWriter = new XMLWriter(this);
     }
 
     public void kreatur()
@@ -64,13 +63,13 @@ public class ProgramController implements ActionListener
         return this.detailMapController;
     }
 
-    public XMLWriter getXmlWriter()
-    {
-        return this.xmlWriter;
-    }
-
     public CharacterController getCharacterController()
     {
         return this.characterController;
+    }
+
+    public DBController getDbController()
+    {
+        return this.dbController;
     }
 }

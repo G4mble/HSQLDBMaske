@@ -38,6 +38,6 @@ public class CharacterController implements ActionListener
     public void addElement()
     {
         String name = this.characterView.getTxtfName().getText();
-        this.programController.getXmlWriter().addCharacter(name);
+        //this.programController.getXmlWriter().addCharacter(name);
     }
 }
