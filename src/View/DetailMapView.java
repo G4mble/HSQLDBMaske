@@ -10,16 +10,9 @@ public class DetailMapView extends JFrame
 {
     private JTextField txtfName;
     private JTextArea txtrConsole, txtrPositionen;
-    private JSpinner spinnerPosCount;
 
     public DetailMapView(DetailMapController paramDetailMapController)
     {
-/**Spinner*/
-
-        spinnerPosCount = new JSpinner();
-        spinnerPosCount.setBounds(238, 28, 36, 20);
-        getContentPane().add(spinnerPosCount);
-
 /**Textfield*/
 
         txtfName = new JTextField();
@@ -31,12 +24,12 @@ public class DetailMapView extends JFrame
 /**Textarea*/
 
         txtrPositionen = new JTextArea();
-        txtrPositionen.setBounds(194, 86, 80, 182);
+        txtrPositionen.setBounds(194, 57, 80, 182);
         txtrPositionen.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtrPositionen);
 
         txtrConsole = new JTextArea();
-        txtrConsole.setBounds(10, 86, 154, 182);
+        txtrConsole.setBounds(10, 86, 154, 153);
         txtrConsole.setEditable(false);
         txtrConsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtrConsole);
@@ -44,19 +37,19 @@ public class DetailMapView extends JFrame
 /**Button*/
 
         JButton btnAdd = new JButton("add");
-        btnAdd.setBounds(194, 288, 58, 23);
+        btnAdd.setBounds(194, 250, 58, 23);
         btnAdd.addActionListener(paramDetailMapController);
         btnAdd.setActionCommand("add");
         getContentPane().add(btnAdd);
 
         JButton btnReset = new JButton("reset");
-        btnReset.setBounds(100, 288, 64, 23);
+        btnReset.setBounds(100, 250, 64, 23);
         btnReset.addActionListener(paramDetailMapController);
         btnReset.setActionCommand("reset");
         getContentPane().add(btnReset);
 
         JButton btnBack = new JButton("back");
-        btnBack.setBounds(10, 288, 64, 23);
+        btnBack.setBounds(10, 250, 64, 23);
         btnBack.addActionListener(paramDetailMapController);
         btnBack.setActionCommand("back");
         getContentPane().add(btnBack);
@@ -71,7 +64,7 @@ public class DetailMapView extends JFrame
         lblName.setBounds(10, 31, 58, 14);
         getContentPane().add(lblName);
 
-        JLabel lblPositionen = new JLabel("Positionen");
+        JLabel lblPositionen = new JLabel("Positionen:");
         lblPositionen.setBounds(194, 11, 70, 14);
         getContentPane().add(lblPositionen);
 
@@ -79,18 +72,14 @@ public class DetailMapView extends JFrame
         lblDetail.setBounds(78, 11, 64, 14);
         getContentPane().add(lblDetail);
 
-        JLabel lblAnz = new JLabel("Anz.:");
-        lblAnz.setBounds(194, 31, 46, 14);
-        getContentPane().add(lblAnz);
-
-        JLabel lblXy = new JLabel("X,Y;\\n");
-        lblXy.setBounds(210, 56, 42, 16);
+        JLabel lblXy = new JLabel("X,Y\\n");
+        lblXy.setBounds(210, 33, 42, 16);
         getContentPane().add(lblXy);
 
 /**Properties*/
 
         this.setTitle("DetailMap_template");
-        this.setSize(new Dimension(292, 350));
+        this.setSize(new Dimension(292, 309));
         this.getContentPane().setLayout(null);
 
         this.setLocationRelativeTo(null);
@@ -112,10 +101,5 @@ public class DetailMapView extends JFrame
     public JTextArea getTxtrPositionen()
     {
         return this.txtrPositionen;
-    }
-
-    public JSpinner getSpinnerPosCount()
-    {
-        return this.spinnerPosCount;
     }
 }

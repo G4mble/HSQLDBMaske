@@ -4,6 +4,7 @@ import View.MenuView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class ProgramController implements ActionListener
 {
@@ -36,7 +37,20 @@ public class ProgramController implements ActionListener
             this.menuView.dispose();
         }
         else if(e.getActionCommand().equals("beenden"))
+        {
             System.exit(0);
+            if(this.dbController.getConnection() != null)
+            {
+                try
+                {
+                    this.dbController.getConnection().close();
+                }
+                catch(SQLException sqlE)
+                {
+                    System.err.println("Fehler beim Schließen der Verbindung");
+                }
+            }
+        }
     }
 
     public void detailMap()
@@ -51,7 +65,8 @@ public class ProgramController implements ActionListener
     }
 
     public void kreatur()
-    {}
+    {
+    }
 
     public void backToMenu()
     {

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/XMLEingabeMaske.iml" filepath="$PROJECT_DIR$/XMLEingabeMaske.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HSQLDBMaske.iml" filepath="$PROJECT_DIR$/HSQLDBMaske.iml" />
     </modules>
   </component>
 </project>
