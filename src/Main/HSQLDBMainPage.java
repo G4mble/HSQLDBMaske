@@ -2,7 +2,7 @@ package Main;
 
 import Controller.ProgramController;
 
-public class XMLMaskeMainPage
+public class HSQLDBMainPage
 {
     public static void main(String[] args)
     {

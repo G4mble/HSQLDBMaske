@@ -22,7 +22,7 @@ public class DBController
 
         try
         {
-            this.connection = DriverManager.getConnection("jdbc:hsqldb:file:C:\\Users\\Tommy\\IdeaProjects\\XMLEingabeMaske\\data\\db", "root", "");
+            this.connection = DriverManager.getConnection("jdbc:hsqldb:file:C:\\Users\\Tommy\\IdeaProjects\\HSQLDBMaske\\data\\db", "root", "");
             this.programController.getDetailMapController().getDetailMapView().getTxtrConsole().append("Verbindung hergestellt.\n");
         }
         catch(SQLException e)
