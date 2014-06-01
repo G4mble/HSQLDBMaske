@@ -11,22 +11,22 @@ public class MenuView extends JFrame
     {
         getContentPane().setLayout(null);
 
-        JButton btnDetailmap = new JButton("DetailMap");
+        JButton btnDetailmap = new JButton("detailMap");
         btnDetailmap.setBounds(10, 11, 120, 33);
         btnDetailmap.addActionListener(paramProgramController);
         btnDetailmap.setActionCommand("detailMap");
         getContentPane().add(btnDetailmap);
 
-        JButton btnCharakter = new JButton("Charakter");
+        JButton btnCharakter = new JButton("charakter");
         btnCharakter.setBounds(10, 55, 120, 33);
         btnCharakter.addActionListener(paramProgramController);
         btnCharakter.setActionCommand("charakter");
         getContentPane().add(btnCharakter);
 
-        JButton btnKreatur = new JButton("Kreatur");
+        JButton btnKreatur = new JButton("waffe");
         btnKreatur.setBounds(10, 99, 120, 33);
         btnKreatur.addActionListener(paramProgramController);
-        btnKreatur.setActionCommand("kreatur");
+        btnKreatur.setActionCommand("waffe");
         getContentPane().add(btnKreatur);
 
         JButton btnBeenden = new JButton("Beenden");

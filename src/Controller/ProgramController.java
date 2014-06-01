@@ -15,6 +15,7 @@ public class ProgramController implements ActionListener
 
     public ProgramController()
     {
+        this.dbController = new DBController(this);
         this.menuView = new MenuView(this);
     }
 
@@ -31,32 +32,32 @@ public class ProgramController implements ActionListener
             this.charakter();
             this.menuView.dispose();
         }
-        else if(e.getActionCommand().equals("kreatur"))
+        else if(e.getActionCommand().equals("waffe"))
         {
-            this.kreatur();
+            this.waffe();
             this.menuView.dispose();
         }
         else if(e.getActionCommand().equals("beenden"))
         {
-            System.exit(0);
             if(this.dbController.getConnection() != null)
             {
                 try
                 {
                     this.dbController.getConnection().close();
+                    System.out.println("HSQLDB getrennt.");
                 }
                 catch(SQLException sqlE)
                 {
-                    System.err.println("Fehler beim Schließen der Verbindung");
+                    System.err.println("Fehler beim Trennen der HSQLDB-Verbindung!");
                 }
             }
+            System.exit(0);
         }
     }
 
     public void detailMap()
     {
         this.detailMapController = new DetailMapController(this);
-        this.dbController = new DBController(this);
     }
 
     public void charakter()
@@ -64,7 +65,7 @@ public class ProgramController implements ActionListener
         this.characterController = new CharacterController(this);
     }
 
-    public void kreatur()
+    public void waffe()
     {
     }
 

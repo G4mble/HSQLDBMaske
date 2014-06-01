@@ -32,12 +32,11 @@ public class CharacterController implements ActionListener
 
     public void resetView()
     {
-        //reset all view elements to default
+        this.characterView.dispose();
+        this.characterView = new CharacterView(this);
     }
 
     public void addElement()
     {
-        String name = this.characterView.getTxtfName().getText();
-        //this.programController.getXmlWriter().addCharacter(name);
     }
 }

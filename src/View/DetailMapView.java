@@ -78,12 +78,12 @@ public class DetailMapView extends JFrame
 
 /**Properties*/
 
-        this.setTitle("DetailMap_template");
+        this.setTitle("detailMap_template");
         this.setSize(new Dimension(292, 309));
         this.getContentPane().setLayout(null);
 
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
         this.setVisible(true);
     }

@@ -8,235 +8,510 @@ import java.awt.*;
 
 public class CharacterView extends JFrame
 {
-    private JTextField txtfName;
+    private JTextField txtfKlasse, txtfKopf, txtfBrust, txtfWaffenhand, txtfNebenhand;
+    private JSpinner spinnerAberglaube, spinnerLebenspunkte, spinnerAstralpunkte, spinnerMut, spinnerKlugheit, spinnerIntuition, spinnerCharisma, spinnerFingerfertigkeit, spinnerGewandheit,
+    spinnerKoerperkraft, spinnerKoerperbeherrschung, spinnerSelbstbeherrschung, spinnerAexteBeile, spinnerFechtwaffen, spinnerDolche, spinnerArmbrust, spinnerBogen, spinnerSchwertSblEh,
+    spinnerSchwertSblZh, spinnerStumpfEh, spinnerStumpfZh, spinnerSpeereSbl;
+    private JTextArea txtAName, txtAKonsole;
 
     public CharacterView(CharacterController paramCharacterController)
     {
-/**TextField*/
-
-        txtfName = new JTextField();
-        txtfName.setBounds(66, 30, 100, 20);
-        txtfName.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(txtfName);
-
-/**ComboBox*/
-
-        JComboBox comboBoxKlasse = new JComboBox();
-        comboBoxKlasse.setModel(new DefaultComboBoxModel(new String[]{"Nahk\u00E4mpfer", "Fernk\u00E4mpfer", "Zauberkundiger"}));
-        comboBoxKlasse.setBounds(66, 61, 100, 20);
-        getContentPane().add(comboBoxKlasse);
-
-/**Spinner*/
-
-        JSpinner spinnerLebenspunkte = new JSpinner();
-        spinnerLebenspunkte.setModel(new SpinnerNumberModel(0, 0, 100, 1));
-        spinnerLebenspunkte.setBounds(210, 30, 40, 20);
-        spinnerLebenspunkte.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerLebenspunkte);
-
-        JSpinner spinnerAstralpunkte = new JSpinner();
-        spinnerAstralpunkte.setModel(new SpinnerNumberModel(0, 0, 100, 1));
-        spinnerAstralpunkte.setBounds(210, 61, 40, 20);
-        spinnerAstralpunkte.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerAstralpunkte);
-
-        JSpinner spinnerMut = new JSpinner();
-        spinnerMut.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerMut.setBounds(46, 119, 40, 20);
-        spinnerMut.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerMut);
-
-        JSpinner spinnerKlugheit = new JSpinner();
-        spinnerKlugheit.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerKlugheit.setBounds(46, 147, 40, 20);
-        spinnerKlugheit.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerKlugheit);
-
-        JSpinner spinnerIntuition = new JSpinner();
-        spinnerIntuition.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerIntuition.setBounds(46, 178, 40, 20);
-        spinnerIntuition.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerIntuition);
-
-        JSpinner spinnerCharisma = new JSpinner();
-        spinnerCharisma.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerCharisma.setBounds(46, 209, 40, 20);
-        spinnerCharisma.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerCharisma);
-
-        JSpinner spinnerFingerfertigkeit = new JSpinner();
-        spinnerFingerfertigkeit.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerFingerfertigkeit.setBounds(46, 240, 40, 20);
-        spinnerFingerfertigkeit.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerFingerfertigkeit);
-
-        JSpinner spinnerGewandheit = new JSpinner();
-        spinnerGewandheit.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerGewandheit.setBounds(46, 270, 40, 20);
-        spinnerGewandheit.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerGewandheit);
-
-        JSpinner spinnerKoerperkraft = new JSpinner();
-        spinnerKoerperkraft.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerKoerperkraft.setBounds(46, 301, 40, 20);
-        spinnerKoerperkraft.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerKoerperkraft);
-
-        JSpinner spinnerAberglaube = new JSpinner();
-        spinnerAberglaube.setBounds(160, 119, 40, 20);
-        spinnerAberglaube.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerAberglaube.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerAberglaube);
-
-        JSpinner spinnerHoehenangst = new JSpinner();
-        spinnerHoehenangst.setBounds(160, 147, 40, 20);
-        spinnerHoehenangst.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerHoehenangst.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerHoehenangst);
-
-        JSpinner spinnerRaumangst = new JSpinner();
-        spinnerRaumangst.setBounds(160, 178, 40, 20);
-        spinnerRaumangst.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerRaumangst.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerRaumangst);
-
-        JSpinner spinnerTotenangst = new JSpinner();
-        spinnerTotenangst.setBounds(160, 209, 40, 20);
-        spinnerTotenangst.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerTotenangst.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerTotenangst);
-
-        JSpinner spinnerNeugier = new JSpinner();
-        spinnerNeugier.setBounds(160, 240, 40, 20);
-        spinnerNeugier.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerNeugier.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerNeugier);
-
-        JSpinner spinnerGoldgier = new JSpinner();
-        spinnerGoldgier.setBounds(160, 270, 40, 20);
-        spinnerGoldgier.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerGoldgier.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerGoldgier);
-
-        JSpinner spinnerJaehzorn = new JSpinner();
-        spinnerJaehzorn.setBounds(160, 301, 40, 20);
-        spinnerJaehzorn.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        spinnerJaehzorn.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        getContentPane().add(spinnerJaehzorn);
-
-/**Buttons*/
+        /**Buttons*/
 
         JButton btnReset = new JButton("reset");
-        btnReset.setBounds(111, 376, 89, 23);
+        btnReset.setBounds(136, 503, 89, 23);
         btnReset.addActionListener(paramCharacterController);
         btnReset.setActionCommand("reset");
         getContentPane().add(btnReset);
 
         JButton btnBack = new JButton("back");
-        btnBack.setBounds(12, 376, 89, 23);
+        btnBack.setBounds(12, 503, 89, 23);
         btnBack.addActionListener(paramCharacterController);
         btnBack.setActionCommand("back");
         getContentPane().add(btnBack);
 
         JButton btnAdd = new JButton("add");
-        btnAdd.setBounds(210, 376, 89, 23);
+        btnAdd.setBounds(268, 503, 89, 23);
         btnAdd.addActionListener(paramCharacterController);
         btnAdd.setActionCommand("add");
         getContentPane().add(btnAdd);
 
+/**Spinner*/
+
+        spinnerLebenspunkte = new JSpinner();
+        spinnerLebenspunkte.setModel(new SpinnerNumberModel(0, 0, 100, 1));
+        spinnerLebenspunkte.setBounds(46, 42, 40, 20);
+        spinnerLebenspunkte.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerLebenspunkte);
+
+        spinnerAstralpunkte = new JSpinner();
+        spinnerAstralpunkte.setModel(new SpinnerNumberModel(0, 0, 100, 1));
+        spinnerAstralpunkte.setBounds(136, 42, 40, 20);
+        spinnerAstralpunkte.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerAstralpunkte);
+
+        spinnerMut = new JSpinner();
+        spinnerMut.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerMut.setBounds(46, 85, 40, 20);
+        spinnerMut.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerMut);
+
+        spinnerKlugheit = new JSpinner();
+        spinnerKlugheit.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerKlugheit.setBounds(136, 85, 40, 20);
+        spinnerKlugheit.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerKlugheit);
+
+        spinnerIntuition = new JSpinner();
+        spinnerIntuition.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerIntuition.setBounds(46, 116, 40, 20);
+        spinnerIntuition.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerIntuition);
+
+        spinnerCharisma = new JSpinner();
+        spinnerCharisma.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerCharisma.setBounds(136, 116, 40, 20);
+        spinnerCharisma.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerCharisma);
+
+        spinnerFingerfertigkeit = new JSpinner();
+        spinnerFingerfertigkeit.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerFingerfertigkeit.setBounds(46, 147, 40, 20);
+        spinnerFingerfertigkeit.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerFingerfertigkeit);
+
+        spinnerGewandheit = new JSpinner();
+        spinnerGewandheit.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerGewandheit.setBounds(136, 147, 40, 20);
+        spinnerGewandheit.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerGewandheit);
+
+        spinnerKoerperkraft = new JSpinner();
+        spinnerKoerperkraft.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerKoerperkraft.setBounds(46, 178, 40, 20);
+        spinnerKoerperkraft.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerKoerperkraft);
+
+        spinnerAberglaube = new JSpinner();
+        spinnerAberglaube.setBounds(136, 178, 40, 20);
+        spinnerAberglaube.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        spinnerAberglaube.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        getContentPane().add(spinnerAberglaube);
+
+        spinnerKoerperbeherrschung = new JSpinner();
+        spinnerKoerperbeherrschung.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerKoerperbeherrschung.setBounds(46, 206, 40, 20);
+        spinnerKoerperbeherrschung.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerKoerperbeherrschung);
+
+        spinnerSelbstbeherrschung = new JSpinner();
+        spinnerSelbstbeherrschung.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerSelbstbeherrschung.setBounds(136, 206, 40, 20);
+        spinnerSelbstbeherrschung.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerSelbstbeherrschung);
+
+        spinnerAexteBeile = new JSpinner();
+        spinnerAexteBeile.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerAexteBeile.setBounds(105, 244, 40, 20);
+        spinnerAexteBeile.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerAexteBeile);
+
+        spinnerFechtwaffen = new JSpinner();
+        spinnerFechtwaffen.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerFechtwaffen.setBounds(105, 272, 40, 20);
+        spinnerFechtwaffen.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerFechtwaffen);
+
+        spinnerDolche = new JSpinner();
+        spinnerDolche.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerDolche.setBounds(105, 300, 40, 20);
+        spinnerDolche.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerDolche);
+
+        spinnerArmbrust = new JSpinner();
+        spinnerArmbrust.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerArmbrust.setBounds(105, 328, 40, 20);
+        spinnerArmbrust.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerArmbrust);
+
+        spinnerBogen = new JSpinner();
+        spinnerBogen.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerBogen.setBounds(105, 356, 40, 20);
+        spinnerBogen.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerBogen);
+
+        spinnerSchwertSblEh = new JSpinner();
+        spinnerSchwertSblEh.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerSchwertSblEh.setBounds(317, 244, 40, 20);
+        spinnerSchwertSblEh.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerSchwertSblEh);
+
+        spinnerSchwertSblZh = new JSpinner();
+        spinnerSchwertSblZh.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerSchwertSblZh.setBounds(317, 272, 40, 20);
+        spinnerSchwertSblZh.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerSchwertSblZh);
+
+        spinnerStumpfEh = new JSpinner();
+        spinnerStumpfEh.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerStumpfEh.setBounds(317, 300, 40, 20);
+        spinnerStumpfEh.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerStumpfEh);
+
+        spinnerStumpfZh = new JSpinner();
+        spinnerStumpfZh.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerStumpfZh.setBounds(317, 328, 40, 20);
+        spinnerStumpfZh.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerStumpfZh);
+
+        spinnerSpeereSbl = new JSpinner();
+        spinnerSpeereSbl.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerSpeereSbl.setBounds(317, 356, 40, 20);
+        spinnerSpeereSbl.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerSpeereSbl);
+
+/**TextArea*/
+
+        txtAName = new JTextArea();
+        txtAName.setBounds(212, 40, 145, 183);
+        txtAName.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtAName);
+
+        txtAKonsole = new JTextArea();
+        txtAKonsole.setBounds(12, 547, 345, 74);
+        txtAKonsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtAKonsole);
+
+/**TextField*/
+
+        txtfKopf = new JTextField();
+        txtfKopf.setBounds(66, 425, 86, 20);
+        txtfKopf.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtfKopf);
+
+        txtfBrust = new JTextField();
+        txtfBrust.setBounds(66, 456, 86, 20);
+        txtfBrust.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtfBrust);
+
+        txtfWaffenhand = new JTextField();
+        txtfWaffenhand.setBounds(263, 425, 86, 20);
+        txtfWaffenhand.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtfWaffenhand);
+
+        txtfNebenhand = new JTextField();
+        txtfNebenhand.setBounds(263, 456, 86, 20);
+        txtfNebenhand.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtfNebenhand);
+
+        txtfKlasse = new JTextField();
+        txtfKlasse.setBounds(66, 11, 110, 20);
+        txtfKlasse.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(txtfKlasse);
+
 /**Label*/
 
-        JLabel lblName = new JLabel("Name:");
-        lblName.setBounds(10, 33, 46, 14);
-        getContentPane().add(lblName);
-
         JLabel lblKlasse = new JLabel("Klasse:");
-        lblKlasse.setBounds(10, 64, 46, 14);
+        lblKlasse.setBounds(12, 14, 46, 14);
         getContentPane().add(lblKlasse);
 
         JLabel lblLebenspunkte = new JLabel("LeP:");
-        lblLebenspunkte.setBounds(176, 33, 36, 14);
+        lblLebenspunkte.setBounds(12, 45, 36, 14);
         getContentPane().add(lblLebenspunkte);
 
         JLabel lblAstralpunkte = new JLabel("AsP:");
-        lblAstralpunkte.setBounds(176, 64, 30, 14);
+        lblAstralpunkte.setBounds(96, 45, 30, 14);
         getContentPane().add(lblAstralpunkte);
 
         JLabel lblMut = new JLabel("MU:");
-        lblMut.setBounds(10, 122, 46, 14);
+        lblMut.setBounds(10, 88, 46, 14);
         getContentPane().add(lblMut);
 
         JLabel lblKlugheit = new JLabel("KL:");
-        lblKlugheit.setBounds(10, 150, 30, 14);
+        lblKlugheit.setBounds(96, 88, 30, 14);
         getContentPane().add(lblKlugheit);
 
         JLabel lblIntuition = new JLabel("IN:");
-        lblIntuition.setBounds(10, 181, 30, 14);
+        lblIntuition.setBounds(12, 119, 30, 14);
         getContentPane().add(lblIntuition);
 
         JLabel lblCharisma = new JLabel("CH:");
-        lblCharisma.setBounds(10, 212, 30, 14);
+        lblCharisma.setBounds(96, 119, 30, 14);
         getContentPane().add(lblCharisma);
 
         JLabel lblFingerfertigkeit = new JLabel("FF:");
-        lblFingerfertigkeit.setBounds(10, 243, 30, 14);
+        lblFingerfertigkeit.setBounds(12, 150, 30, 14);
         getContentPane().add(lblFingerfertigkeit);
 
         JLabel lblGewandheit = new JLabel("GE:");
-        lblGewandheit.setBounds(10, 273, 30, 14);
+        lblGewandheit.setBounds(96, 150, 30, 14);
         getContentPane().add(lblGewandheit);
 
         JLabel lblKrperkraft = new JLabel("KK:");
-        lblKrperkraft.setBounds(10, 304, 30, 14);
+        lblKrperkraft.setBounds(12, 181, 30, 14);
         getContentPane().add(lblKrperkraft);
 
         JLabel lblAbeerglauber = new JLabel("AG:");
-        lblAbeerglauber.setBounds(120, 122, 30, 14);
+        lblAbeerglauber.setBounds(96, 181, 30, 14);
         getContentPane().add(lblAbeerglauber);
-        JLabel lblHoehenangst = new JLabel("HA:");
-        lblHoehenangst.setBounds(120, 150, 30, 14);
-        getContentPane().add(lblHoehenangst);
 
-        JLabel lblRaumangst = new JLabel("RA:");
-        lblRaumangst.setBounds(120, 181, 30, 14);
-        getContentPane().add(lblRaumangst);
+        JLabel lblKoerperbeherrschung = new JLabel("KB:");
+        lblKoerperbeherrschung.setBounds(12, 209, 30, 14);
+        getContentPane().add(lblKoerperbeherrschung);
 
-        JLabel lblTotenangst = new JLabel("TA:");
-        lblTotenangst.setBounds(120, 212, 30, 14);
-        getContentPane().add(lblTotenangst);
+        JLabel lblSelbstbeherrschung = new JLabel("SB:");
+        lblSelbstbeherrschung.setBounds(96, 209, 30, 14);
+        getContentPane().add(lblSelbstbeherrschung);
 
-        JLabel lblNeugier = new JLabel("NG:");
-        lblNeugier.setBounds(120, 243, 30, 14);
-        getContentPane().add(lblNeugier);
+        JLabel lblWaffenhand = new JLabel("Waffenhand:");
+        lblWaffenhand.setBounds(179, 428, 89, 14);
+        getContentPane().add(lblWaffenhand);
 
-        JLabel lblGoldgier = new JLabel("GG:");
-        lblGoldgier.setBounds(120, 273, 30, 14);
-        getContentPane().add(lblGoldgier);
+        JLabel lblNebenhand = new JLabel("Nebenhand:");
+        lblNebenhand.setBounds(179, 459, 79, 14);
+        getContentPane().add(lblNebenhand);
 
-        JLabel lblJaehzorn = new JLabel("JZ:");
-        lblJaehzorn.setBounds(120, 304, 30, 14);
-        getContentPane().add(lblJaehzorn);
+        JLabel lblKopf = new JLabel("Kopf:");
+        lblKopf.setBounds(12, 428, 46, 14);
+        getContentPane().add(lblKopf);
+
+        JLabel lblBrust = new JLabel("Brust:");
+        lblBrust.setBounds(12, 459, 46, 14);
+        getContentPane().add(lblBrust);
+
+        JLabel lblAusrstung = new JLabel("Ausr\u00FCstung:");
+        lblAusrstung.setBounds(130, 395, 74, 14);
+        getContentPane().add(lblAusrstung);
+
+        JLabel lblAexteUndBeile = new JLabel("\u00C4xte und Beile:");
+        lblAexteUndBeile.setBounds(12, 247, 98, 14);
+        getContentPane().add(lblAexteUndBeile);
+
+        JLabel lblDolche = new JLabel("Dolche:");
+        lblDolche.setBounds(12, 303, 46, 14);
+        getContentPane().add(lblDolche);
+
+        JLabel lblSchwerterUndSbeleh = new JLabel("Schwerter und S\u00E4bel(EH):");
+        lblSchwerterUndSbeleh.setBounds(164, 247, 153, 14);
+        getContentPane().add(lblSchwerterUndSbeleh);
+
+        JLabel lblSchwerterUndSbelzh = new JLabel("Schwerter und S\u00E4bel(ZH):");
+        lblSchwerterUndSbelzh.setBounds(164, 275, 153, 14);
+        getContentPane().add(lblSchwerterUndSbelzh);
+
+        JLabel lblFechtwaffen = new JLabel("Fechtwaffen:");
+        lblFechtwaffen.setBounds(12, 275, 74, 14);
+        getContentPane().add(lblFechtwaffen);
+
+        JLabel lblSpeereUndStbe = new JLabel("Speere und St\u00E4be:");
+        lblSpeereUndStbe.setBounds(164, 359, 105, 14);
+        getContentPane().add(lblSpeereUndStbe);
+
+        JLabel lblStumpfeHiebwaffeneh = new JLabel("Stumpfe Hiebwaffen(EH):");
+        lblStumpfeHiebwaffeneh.setBounds(164, 303, 141, 14);
+        getContentPane().add(lblStumpfeHiebwaffeneh);
+
+        JLabel lblStumpfeHiebwaffenzh = new JLabel("Stumpfe Hiebwaffen(ZH):");
+        lblStumpfeHiebwaffenzh.setBounds(164, 331, 141, 14);
+        getContentPane().add(lblStumpfeHiebwaffenzh);
+
+        JLabel lblArmbrust = new JLabel("Armbrust:");
+        lblArmbrust.setBounds(12, 331, 66, 14);
+        getContentPane().add(lblArmbrust);
+
+        JLabel lblBogen = new JLabel("Bogen:");
+        lblBogen.setBounds(12, 359, 46, 14);
+        getContentPane().add(lblBogen);
+
+        JLabel lblNamen = new JLabel("Namen:");
+        lblNamen.setBounds(212, 14, 56, 14);
+        getContentPane().add(lblNamen);
 
 /**Separator*/
 
+        JSeparator separator_7 = new JSeparator();
+        separator_7.setBounds(10, 387, 355, 14);
+        getContentPane().add(separator_7);
+
+        JSeparator separator_4 = new JSeparator();
+        separator_4.setBounds(10, 201, 175, 7);
+        getContentPane().add(separator_4);
+
+        JSeparator separator_5 = new JSeparator();
+        separator_5.setOrientation(SwingConstants.VERTICAL);
+        separator_5.setBounds(90, 173, 11, 25);
+        getContentPane().add(separator_5);
+
+        JSeparator separator_6 = new JSeparator();
+        separator_6.setBounds(95, 172, 90, 14);
+        getContentPane().add(separator_6);
+
+        JSeparator separator_2 = new JSeparator();
+        separator_2.setBounds(10, 233, 355, 14);
+        getContentPane().add(separator_2);
+
+        JSeparator separator_1 = new JSeparator();
+        separator_1.setOrientation(SwingConstants.VERTICAL);
+        separator_1.setBounds(195, 11, 11, 212);
+        getContentPane().add(separator_1);
+
         JSeparator separator = new JSeparator();
         separator.setBorder(null);
-        separator.setBounds(10, 103, 264, 20);
+        separator.setBounds(10, 73, 175, 20);
         getContentPane().add(separator);
+
+        JSeparator separator_3 = new JSeparator();
+        separator_3.setBounds(10, 537, 355, 20);
+        getContentPane().add(separator_3);
 
 /**Properties*/
 
-        this.setTitle("Charakter_template");
-        this.setSize(new Dimension(800, 800));
+        this.setSize(new Dimension(380, 660));
         this.getContentPane().setLayout(null);
+        this.setTitle("charakter_template");
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
         this.setVisible(true);
     }
 
-    public JTextField getTxtfName()
+    public JTextField getTxtfKlasse()
     {
-        return this.txtfName;
+        return this.txtfKlasse;
+    }
+
+    public JTextField getTxtfKopf()
+    {
+        return this.txtfKopf;
+    }
+
+    public JTextField getTxtfBrust()
+    {
+        return this.txtfBrust;
+    }
+
+    public JTextField getTxtfWaffenhand()
+    {
+        return this.txtfWaffenhand;
+    }
+
+    public JTextField getTxtfNebenhand()
+    {
+        return this.txtfNebenhand;
+    }
+
+    public JTextArea getTxtAName()
+    {
+        return this.txtAName;
+    }
+
+    public JSpinner getSpinnerLebenspunkte()
+    {
+        return this.spinnerLebenspunkte;
+    }
+
+    public JSpinner getSpinnerAstralpunkte()
+    {
+        return this.spinnerAstralpunkte;
+    }
+
+    public JSpinner getSpinnerMut()
+    {
+        return this.spinnerMut;
+    }
+
+    public JSpinner getSpinnerKlugheit()
+    {
+        return this.spinnerKlugheit;
+    }
+
+    public JSpinner getSpinnerIntuition()
+    {
+        return this.spinnerIntuition;
+    }
+
+    public JSpinner getSpinnerCharisma()
+    {
+        return this.spinnerCharisma;
+    }
+
+    public JSpinner getSpinnerFingerfertigkeit()
+    {
+        return this.spinnerFingerfertigkeit;
+    }
+
+    public JSpinner getSpinnerGewandheit()
+    {
+        return this.spinnerGewandheit;
+    }
+
+    public JSpinner getSpinnerKoerperkraft()
+    {
+        return this.spinnerKoerperkraft;
+    }
+
+    public JSpinner getSpinnerKoerperbeherrschung()
+    {
+        return this.spinnerKoerperbeherrschung;
+    }
+
+    public JSpinner getSpinnerSelbstbeherrschung()
+    {
+        return this.spinnerSelbstbeherrschung;
+    }
+
+    public JSpinner getSpinnerAexteBeile()
+    {
+        return this.spinnerAexteBeile;
+    }
+
+    public JSpinner getSpinnerFechtwaffen()
+    {
+        return this.spinnerFechtwaffen;
+    }
+
+    public JSpinner getSpinnerDolche()
+    {
+        return this.spinnerDolche;
+    }
+
+    public JSpinner getSpinnerArmbrust()
+    {
+        return this.spinnerArmbrust;
+    }
+
+    public JSpinner getSpinnerBogen()
+    {
+        return this.spinnerBogen;
+    }
+
+    public JSpinner getSpinnerSchwertSblEh()
+    {
+        return this.spinnerSchwertSblEh;
+    }
+
+    public JSpinner getSpinnerSchwertSblZh()
+    {
+        return this.spinnerSchwertSblZh;
+    }
+
+    public JSpinner getSpinnerStumpfEh()
+    {
+        return this.spinnerStumpfEh;
+    }
+
+    public JSpinner getSpinnerStumpfZh()
+    {
+        return this.spinnerStumpfZh;
+    }
+
+    public JSpinner getSpinnerSpeereSbl()
+    {
+        return this.spinnerSpeereSbl;
+    }
+
+    public JSpinner getSpinnerAberglaube()
+    {
+        return this.spinnerAberglaube;
     }
 }
