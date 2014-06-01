@@ -11,7 +11,7 @@ public class CharacterView extends JFrame
     private JTextField txtfKlasse, txtfKopf, txtfBrust, txtfWaffenhand, txtfNebenhand;
     private JSpinner spinnerAberglaube, spinnerLebenspunkte, spinnerAstralpunkte, spinnerMut, spinnerKlugheit, spinnerIntuition, spinnerCharisma, spinnerFingerfertigkeit, spinnerGewandheit,
     spinnerKoerperkraft, spinnerKoerperbeherrschung, spinnerSelbstbeherrschung, spinnerAexteBeile, spinnerFechtwaffen, spinnerDolche, spinnerArmbrust, spinnerBogen, spinnerSchwertSblEh,
-    spinnerSchwertSblZh, spinnerStumpfEh, spinnerStumpfZh, spinnerSpeereSbl;
+    spinnerSchwertSblZh, spinnerStumpfEh, spinnerStumpfZh, spinnerSpeerStab;
     private JTextArea txtAName, txtAKonsole;
 
     public CharacterView(CharacterController paramCharacterController)
@@ -164,11 +164,11 @@ public class CharacterView extends JFrame
         spinnerStumpfZh.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(spinnerStumpfZh);
 
-        spinnerSpeereSbl = new JSpinner();
-        spinnerSpeereSbl.setModel(new SpinnerNumberModel(0, 0, 20, 1));
-        spinnerSpeereSbl.setBounds(317, 356, 40, 20);
-        spinnerSpeereSbl.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
-        getContentPane().add(spinnerSpeereSbl);
+        spinnerSpeerStab = new JSpinner();
+        spinnerSpeerStab.setModel(new SpinnerNumberModel(0, 0, 20, 1));
+        spinnerSpeerStab.setBounds(317, 356, 40, 20);
+        spinnerSpeerStab.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        getContentPane().add(spinnerSpeerStab);
 
 /**TextArea*/
 
@@ -505,9 +505,9 @@ public class CharacterView extends JFrame
         return this.spinnerStumpfZh;
     }
 
-    public JSpinner getSpinnerSpeereSbl()
+    public JSpinner getSpinnerSpeerStab()
     {
-        return this.spinnerSpeereSbl;
+        return this.spinnerSpeerStab;
     }
 
     public JSpinner getSpinnerAberglaube()

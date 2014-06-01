@@ -48,6 +48,22 @@ public class DBController
         }
     }
 
+    public void addCharakter(int mut, int klugheit, int intuition, int charisma, int fingerfertigkeit, int gewandheit, int koerperkraft, int lebensPkte, int astralPkte, int aberglaube,
+            int koerperbeherrschung, int selbstbeherrschung, int aexteBeile, int dolche, int schwertSblEh, int schwertSblZh, int fechtwaffen, int speerStab, int stumpfEh, int stumpfZh,
+            int armbrust, int bogen, String namensListe, String klasse, String kopfEq, String brustEq, String waffenhandEq, String nebenhandEq)
+    {
+        /**setze stufe auf 1*/
+        int stufe = 1;
+        /**werte berechnen*/
+        int magieresistenz = ((mut + klugheit + stufe)/3)-(2*aberglaube);
+        //TODO formel zur berechnung der ausdauer (bewegunsreichweite) [rüstungsbehunderung beachten]
+        int ausdauer = (lebensPkte + koerperkraft + gewandheit);
+        int attackeWert = (mut + gewandheit + koerperkraft)/5;
+        int paradeWert = (intuition + gewandheit + koerperkraft)/5;
+        int fernkampfWert = (intuition + fingerfertigkeit + koerperkraft)/4;
+        int ausweichWert = (mut + intuition + gewandheit)/4;
+    }
+
     public Connection getConnection()
     {
         return this.connection;
