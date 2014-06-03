@@ -405,6 +405,11 @@ public class CharacterView extends JFrame
         return this.txtAName;
     }
 
+    public JTextArea getTxtAKonsole()
+    {
+        return this.txtAKonsole;
+    }
+
     public JSpinner getSpinnerLebenspunkte()
     {
         return this.spinnerLebenspunkte;

@@ -71,4 +71,9 @@ public class CharacterController implements ActionListener
                 koerperbeherrschung, selbstbeherrschung, aexteBeile, dolche, schwertSblEh, schwertSblZh, fechtwaffen, speerStab, stumpfEh, stumpfZh, armbrust, bogen, namensListe, klasse,
                 kopfEq, brustEq, waffenhandEq, nebenhandEq);
     }
+
+    public CharacterView getCharacterView()
+    {
+        return this.characterView;
+    }
 }
