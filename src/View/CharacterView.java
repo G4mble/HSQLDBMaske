@@ -16,7 +16,7 @@ public class CharacterView extends JFrame
 
     public CharacterView(CharacterController paramCharacterController)
     {
-        /**Buttons*/
+/**Buttons*/
 
         JButton btnReset = new JButton("reset");
         btnReset.setBounds(136, 503, 89, 23);
