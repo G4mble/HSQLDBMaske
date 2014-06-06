@@ -23,7 +23,7 @@ public class DBController
 
         try
         {
-            this.connection = DriverManager.getConnection("jdbc:hsqldb:file:C:\\Users\\Tommy\\IdeaProjects\\HSQLDBMaske\\data\\db", "root", "");
+            this.connection = DriverManager.getConnection("jdbc:hsqldb:file:data\\db", "root", "");
             System.out.println("HSQLDB verbunden.");
         }
         catch(SQLException e)
