@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class CharacterView extends JFrame
 {
-    private JTextField txtfKlasse, txtfKopf, txtfBrust, txtfWaffenhand, txtfNebenhand;
+    private JTextField txtfKlasse, txtfKopf, txtfBrust, txtfWaffenhand, txtfNebenhand, txtfUrl;
     private JSpinner spinnerAberglaube, spinnerLebenspunkte, spinnerAstralpunkte, spinnerMut, spinnerKlugheit, spinnerIntuition, spinnerCharisma, spinnerFingerfertigkeit, spinnerGewandheit,
     spinnerKoerperkraft, spinnerKoerperbeherrschung, spinnerSelbstbeherrschung, spinnerAexteBeile, spinnerFechtwaffen, spinnerDolche, spinnerArmbrust, spinnerBogen, spinnerSchwertSblEh,
     spinnerSchwertSblZh, spinnerStumpfEh, spinnerStumpfZh, spinnerSpeerStab;
@@ -19,19 +19,19 @@ public class CharacterView extends JFrame
 /**Buttons*/
 
         JButton btnReset = new JButton("reset");
-        btnReset.setBounds(136, 503, 89, 23);
+        btnReset.setBounds(138, 514, 89, 23);
         btnReset.addActionListener(paramCharacterController);
         btnReset.setActionCommand("reset");
         getContentPane().add(btnReset);
 
         JButton btnBack = new JButton("back");
-        btnBack.setBounds(12, 503, 89, 23);
+        btnBack.setBounds(14, 514, 89, 23);
         btnBack.addActionListener(paramCharacterController);
         btnBack.setActionCommand("back");
         getContentPane().add(btnBack);
 
         JButton btnAdd = new JButton("add");
-        btnAdd.setBounds(268, 503, 89, 23);
+        btnAdd.setBounds(270, 514, 89, 23);
         btnAdd.addActionListener(paramCharacterController);
         btnAdd.setActionCommand("add");
         getContentPane().add(btnAdd);
@@ -178,29 +178,29 @@ public class CharacterView extends JFrame
         getContentPane().add(txtAName);
 
         txtAKonsole = new JTextArea();
-        txtAKonsole.setBounds(12, 547, 345, 74);
+        txtAKonsole.setBounds(14, 558, 345, 74);
         txtAKonsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtAKonsole);
 
 /**TextField*/
 
         txtfKopf = new JTextField();
-        txtfKopf.setBounds(66, 425, 86, 20);
+        txtfKopf.setBounds(66, 395, 86, 20);
         txtfKopf.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtfKopf);
 
         txtfBrust = new JTextField();
-        txtfBrust.setBounds(66, 456, 86, 20);
+        txtfBrust.setBounds(66, 426, 86, 20);
         txtfBrust.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtfBrust);
 
         txtfWaffenhand = new JTextField();
-        txtfWaffenhand.setBounds(263, 425, 86, 20);
+        txtfWaffenhand.setBounds(263, 395, 86, 20);
         txtfWaffenhand.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtfWaffenhand);
 
         txtfNebenhand = new JTextField();
-        txtfNebenhand.setBounds(263, 456, 86, 20);
+        txtfNebenhand.setBounds(263, 426, 86, 20);
         txtfNebenhand.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtfNebenhand);
 
@@ -208,6 +208,11 @@ public class CharacterView extends JFrame
         txtfKlasse.setBounds(66, 11, 110, 20);
         txtfKlasse.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtfKlasse);
+
+        txtfUrl = new JTextField();
+        txtfUrl.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+        txtfUrl.setBounds(66, 470, 86, 20);
+        getContentPane().add(txtfUrl);
 
 /**Label*/
 
@@ -264,24 +269,20 @@ public class CharacterView extends JFrame
         getContentPane().add(lblSelbstbeherrschung);
 
         JLabel lblWaffenhand = new JLabel("Waffenhand:");
-        lblWaffenhand.setBounds(179, 428, 89, 14);
+        lblWaffenhand.setBounds(179, 398, 89, 14);
         getContentPane().add(lblWaffenhand);
 
         JLabel lblNebenhand = new JLabel("Nebenhand:");
-        lblNebenhand.setBounds(179, 459, 79, 14);
+        lblNebenhand.setBounds(179, 429, 79, 14);
         getContentPane().add(lblNebenhand);
 
         JLabel lblKopf = new JLabel("Kopf:");
-        lblKopf.setBounds(12, 428, 46, 14);
+        lblKopf.setBounds(12, 398, 46, 14);
         getContentPane().add(lblKopf);
 
         JLabel lblBrust = new JLabel("Brust:");
-        lblBrust.setBounds(12, 459, 46, 14);
+        lblBrust.setBounds(12, 429, 46, 14);
         getContentPane().add(lblBrust);
-
-        JLabel lblAusrstung = new JLabel("Ausr\u00FCstung:");
-        lblAusrstung.setBounds(130, 395, 74, 14);
-        getContentPane().add(lblAusrstung);
 
         JLabel lblAexteUndBeile = new JLabel("\u00C4xte und Beile:");
         lblAexteUndBeile.setBounds(12, 247, 98, 14);
@@ -327,6 +328,10 @@ public class CharacterView extends JFrame
         lblNamen.setBounds(212, 14, 56, 14);
         getContentPane().add(lblNamen);
 
+        JLabel lblUrl = new JLabel("URL:");
+        lblUrl.setBounds(14, 473, 36, 14);
+        getContentPane().add(lblUrl);
+
 /**Separator*/
 
         JSeparator separator_7 = new JSeparator();
@@ -361,12 +366,16 @@ public class CharacterView extends JFrame
         getContentPane().add(separator);
 
         JSeparator separator_3 = new JSeparator();
-        separator_3.setBounds(10, 537, 355, 20);
+        separator_3.setBounds(12, 548, 355, 20);
         getContentPane().add(separator_3);
+
+        JSeparator separator_8 = new JSeparator();
+        separator_8.setBounds(10, 457, 355, 14);
+        getContentPane().add(separator_8);
 
 /**Properties*/
 
-        this.setSize(new Dimension(380, 660));
+        this.setSize(new Dimension(380, 675));
         this.getContentPane().setLayout(null);
         this.setTitle("charakter_template");
         this.setLocationRelativeTo(null);
@@ -398,6 +407,11 @@ public class CharacterView extends JFrame
     public JTextField getTxtfNebenhand()
     {
         return this.txtfNebenhand;
+    }
+
+    public JTextField getTxtfUrl()
+    {
+        return this.txtfUrl;
     }
 
     public JTextArea getTxtAName()

@@ -50,7 +50,7 @@ public class DBController
 
     public void addCharakter(int mut, int klugheit, int intuition, int charisma, int fingerfertigkeit, int gewandheit, int koerperkraft, int lebensPkte, int astralPkte, int aberglaube,
             int koerperbeherrschung, int selbstbeherrschung, int aexteBeile, int dolche, int schwertSblEh, int schwertSblZh, int fechtwaffen, int speerStab, int stumpfEh, int stumpfZh,
-            int armbrust, int bogen, String namensListe, String klasse, String kopfEq, String brustEq, String waffenhandEq, String nebenhandEq)
+            int armbrust, int bogen, String namensListe, String klasse, String kopfEq, String brustEq, String waffenhandEq, String nebenhandEq, String url)
     {
         /**setze stufe auf 1*/
         int stufe = 1;
@@ -72,14 +72,14 @@ public class DBController
                     "charisma INT, fingerfertigkeit INT, gewandheit INT, koerperkraft INT, aberglaube INT, koerperbeherrschung INT, selbstbeherrschung INT, aexteBeile INT, dolche INT," +
                     "schwertSblEh INT, schwertSblZh INT, fechtwaffen INT, speerStab INT, stumpfEh INT, stumpfZh INT, armbrust INT, bogen INT, stufe INT, magieresistenz INT," +
                     "ausdauer INT, attackeWert INT, paradeWert INT, fernkampfWert INT, ausweichWert INT, waffenhandEq VARCHAR(1000), nebenhandEq VARCHAR(1000), kopfEq VARCHAR(1000)," +
-                    "brustEq VARCHAR(1000), namensListe VARCHAR(1000))");
+                    "brustEq VARCHAR(1000), namensListe VARCHAR(1000), url VARCHAR(1000))");
             stmt.executeQuery("INSERT INTO charakterRaw(mut, klugheit, intuition, charisma, fingerfertigkeit, gewandheit, koerperkraft, lebensPkte, astralPkte, aberglaube," +
                     "koerperbeherrschung, selbstbeherrschung, aexteBeile, dolche, schwertSblEh, schwertSblZh, fechtwaffen, speerStab, stumpfEh, stumpfZh, armbrust, bogen," +
-                    "namensListe, klasse, kopfEq, brustEq, waffenhandEq, nebenhandEq, stufe, magieresistenz, ausdauer, attackeWert, paradeWert, fernkampfWert, ausweichWert)" +
+                    "namensListe, klasse, kopfEq, brustEq, waffenhandEq, url, nebenhandEq, stufe, magieresistenz, ausdauer, attackeWert, paradeWert, fernkampfWert, ausweichWert)" +
                     "VALUES(" + mut + "," + klugheit + "," + intuition + "," + charisma +"," + fingerfertigkeit + "," + gewandheit + "," + koerperkraft + "," +
                     "" + lebensPkte + "," + astralPkte + "," + aberglaube + "," + koerperbeherrschung + "," + selbstbeherrschung + "," + aexteBeile + "," +
                     "" + dolche + "," + schwertSblEh + "," + schwertSblZh + "," + fechtwaffen + "," + speerStab + "," + stumpfEh + "," + stumpfZh + "," +
-                    "" + armbrust + "," + bogen + ",'" + namensListe + "','" + klasse + "','" + kopfEq + "','" + brustEq + "','" + waffenhandEq + "','" +
+                    "" + armbrust + "," + bogen + ",'" + namensListe + "','" + klasse + "','" + kopfEq + "','" + brustEq + "','" + waffenhandEq + "','" + url + "','" +
                     "" + nebenhandEq + "'," + stufe + "," + magieresistenz + "," + ausdauer + "," + attackeWert + "," + paradeWert + "," + fernkampfWert + "," + ausweichWert + ")");
             stmt.close();
             this.programController.getCharacterController().getCharacterView().getTxtAKonsole().append("charakter hinzugefügt.\n");

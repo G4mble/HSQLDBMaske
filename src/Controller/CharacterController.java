@@ -46,6 +46,7 @@ public class CharacterController implements ActionListener
         String brustEq = this.characterView.getTxtfBrust().getText();
         String waffenhandEq = this.characterView.getTxtfWaffenhand().getText();
         String nebenhandEq = this.characterView.getTxtfNebenhand().getText();
+        String url = "data\\img\\tiles\\char\\" + this.characterView.getTxtfUrl().getText() + ".png";
         int mut = Integer.parseInt(this.characterView.getSpinnerMut().getValue().toString());
         int klugheit = Integer.parseInt(this.characterView.getSpinnerKlugheit().getValue().toString());
         int intuition = Integer.parseInt(this.characterView.getSpinnerIntuition().getValue().toString());
@@ -69,7 +70,7 @@ public class CharacterController implements ActionListener
 
         this.programController.getDbController().addCharakter(mut, klugheit, intuition, charisma, fingerfertigkeit, gewandheit, koerperkraft, lebensPkte, astralPkte, aberglaube,
                 koerperbeherrschung, selbstbeherrschung, aexteBeile, dolche, schwertSblEh, schwertSblZh, fechtwaffen, speerStab, stumpfEh, stumpfZh, armbrust, bogen, namensListe, klasse,
-                kopfEq, brustEq, waffenhandEq, nebenhandEq);
+                kopfEq, brustEq, waffenhandEq, nebenhandEq, url);
     }
 
     public CharacterView getCharacterView()
