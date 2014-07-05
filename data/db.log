@@ -1,2 +1,5 @@
 /*C3*/SET SCHEMA PUBLIC
+drop table testa_charakter
+DELETE FROM USER WHERE NAME='testa'
+COMMIT
 DISCONNECT
