@@ -7,6 +7,9 @@ public class DBController
     private Connection connection = null;
     private ProgramController programController;
 
+    /*Lädt Treiberklasse
+    * baut Verbindung zur DB auf
+    * err.prinln sonst*/
     public DBController(ProgramController paramProgramController)
     {
         this.programController = paramProgramController;
@@ -52,9 +55,7 @@ public class DBController
             int koerperbeherrschung, int selbstbeherrschung, int aexteBeile, int dolche, int schwertSblEh, int schwertSblZh, int fechtwaffen, int speerStab, int stumpfEh, int stumpfZh,
             int armbrust, int bogen, String namensListe, String klasse, String kopfEq, String brustEq, String waffenhandEq, String nebenhandEq, String url)
     {
-        /**setze stufe auf 1*/
         int stufe = 1;
-        /**werte berechnen*/
         int magieresistenz = ((mut + klugheit + stufe)/3)-(2*aberglaube);
         if(magieresistenz < 0)
             magieresistenz = 0;
