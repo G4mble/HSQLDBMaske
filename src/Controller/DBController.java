@@ -1,5 +1,6 @@
 package Controller;
 
+import javax.swing.*;
 import java.sql.*;
 
 public class DBController
@@ -13,25 +14,29 @@ public class DBController
     public DBController(ProgramController paramProgramController)
     {
         this.programController = paramProgramController;
+
         try
         {
             Class.forName("org.hsqldb.jdbcDriver");
             System.out.println("Treiberklasse geladen.");
         }
-        catch(ClassNotFoundException e)
+        catch (ClassNotFoundException cnfE)
         {
-            System.err.println("Treiberklasse nicht gefunden!");
-            return;
+            JOptionPane.showMessageDialog(null, "ErrorMessage: " + cnfE.getMessage() + "\nExceptionType: ClassNotFoundException" +
+                    "\nTreiberklasse konnte nicht geladen werden!", "Fehler beim Laden der Datenbank", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
-
         try
         {
-            this.connection = DriverManager.getConnection("jdbc:hsqldb:file:data\\db", "root", "");
+            this.connection = DriverManager.getConnection("jdbc:hsqldb:file:data\\common\\db;ifexists=true;shutdown=true", "root", "");
             System.out.println("HSQLDB verbunden.");
         }
-        catch(SQLException e)
+        catch (SQLException sqlE)
         {
-            System.err.println("Fehler beim Verbindungsaufbau!");
+            JOptionPane.showMessageDialog(null, "SQLState: " + sqlE.getSQLState() + "\nErrorCode: " + sqlE.getErrorCode() +
+                    "\nErrorMessage: " + sqlE.getMessage() + "\nExceptionType: SQLException" +
+                    "\nVerbindung zur Datenbank konnte nicht hergestellt werden!", "Fehler beim Laden der Datenbank", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
         }
     }
 
