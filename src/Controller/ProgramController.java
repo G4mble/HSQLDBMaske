@@ -4,7 +4,6 @@ import View.MenuView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 
 public class ProgramController implements ActionListener
 {
@@ -22,37 +21,22 @@ public class ProgramController implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getActionCommand().equals("detailMap"))
+        switch(e.getActionCommand())
         {
-            this.detailMap();
-            this.menuView.dispose();
+            case "detailMap":
+                this.detailMap();
+                break;
+            case "charakter":
+                this.charakter();
+                break;
+            case "waffe":
+                this.waffe();
+                break;
+            case "beenden":
+                this.dbController.closeConnection();
+                break;
         }
-        else if(e.getActionCommand().equals("charakter"))
-        {
-            this.charakter();
-            this.menuView.dispose();
-        }
-        else if(e.getActionCommand().equals("waffe"))
-        {
-            this.waffe();
-            this.menuView.dispose();
-        }
-        else if(e.getActionCommand().equals("beenden"))
-        {
-            if(this.dbController.getConnection() != null)
-            {
-                try
-                {
-                    this.dbController.getConnection().close();
-                    System.out.println("HSQLDB getrennt.");
-                }
-                catch(SQLException sqlE)
-                {
-                    System.err.println("Fehler beim Trennen der HSQLDB-Verbindung!");
-                }
-            }
-            System.exit(0);
-        }
+        this.menuView.dispose();
     }
 
     public void detailMap()

@@ -24,7 +24,7 @@ public class DBController
         {
             JOptionPane.showMessageDialog(null, "ErrorMessage: " + cnfE.getMessage() + "\nExceptionType: ClassNotFoundException" +
                     "\nTreiberklasse konnte nicht geladen werden!", "Fehler beim Laden der Datenbank", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
+            this.closeConnection();
         }
         try
         {
@@ -36,18 +36,16 @@ public class DBController
             JOptionPane.showMessageDialog(null, "SQLState: " + sqlE.getSQLState() + "\nErrorCode: " + sqlE.getErrorCode() +
                     "\nErrorMessage: " + sqlE.getMessage() + "\nExceptionType: SQLException" +
                     "\nVerbindung zur Datenbank konnte nicht hergestellt werden!", "Fehler beim Laden der Datenbank", JOptionPane.ERROR_MESSAGE);
-            System.exit(0);
+            this.closeConnection();
         }
     }
 
     public void addDetailMap(String paramName, String paramUrl, String paramPos)
     {
-        try
+        try(Statement stmt = this.connection.createStatement())
         {
-            Statement stmt = this.connection.createStatement();
-            stmt.executeQuery("CREATE TABLE IF NOT EXISTS detailMap (name VARCHAR(1000), url VARCHAR(1000), position VARCHAR(1000), PRIMARY KEY(name))");
-            stmt.executeQuery("INSERT INTO detailMap(name, url, position) VALUES('" + paramName + "', '" + paramUrl + "', '" + paramPos + "')");
-            stmt.close();
+            stmt.executeQuery("CREATE TABLE IF NOT EXISTS detailMap (name VARCHAR(30), url VARCHAR(70), position VARCHAR(10 0), PRIMARY KEY(name))");
+            stmt.executeQuery("INSERT INTO detailMap VALUES('" + paramName + "', '" + paramUrl + "', '" + paramPos + "')");
             this.programController.getDetailMapController().getDetailMapView().getTxtrConsole().append("detailMap hinzugefügt.\n");
         }
         catch(SQLException sqlE)
@@ -71,23 +69,18 @@ public class DBController
         int fernkampfWert = (intuition + fingerfertigkeit + koerperkraft)/4;
         int ausweichWert = (mut + intuition + gewandheit)/4;
 
-        try
+        try(Statement stmt = this.connection.createStatement())
         {
-            Statement stmt = this.connection.createStatement();
-            stmt.executeQuery("CREATE TABLE IF NOT EXISTS charakterRaw (charID INT IDENTITY, klasse VARCHAR(1000),lebensPkte INT, astralPkte INT, mut INT, klugheit INT, intuition INT," +
+            stmt.executeQuery("CREATE TABLE IF NOT EXISTS charakterRaw (charID INT IDENTITY, klasse VARCHAR(30),lebensPkte INT, astralPkte INT, mut INT, klugheit INT, intuition INT," +
                     "charisma INT, fingerfertigkeit INT, gewandheit INT, koerperkraft INT, aberglaube INT, koerperbeherrschung INT, selbstbeherrschung INT, aexteBeile INT, dolche INT," +
                     "schwertSblEh INT, schwertSblZh INT, fechtwaffen INT, speerStab INT, stumpfEh INT, stumpfZh INT, armbrust INT, bogen INT, stufe INT, magieresistenz INT," +
-                    "ausdauer INT, attackeWert INT, paradeWert INT, fernkampfWert INT, ausweichWert INT, waffenhandEq VARCHAR(1000), nebenhandEq VARCHAR(1000), kopfEq VARCHAR(1000)," +
-                    "brustEq VARCHAR(1000), namensListe VARCHAR(1000), url VARCHAR(1000))");
-            stmt.executeQuery("INSERT INTO charakterRaw(mut, klugheit, intuition, charisma, fingerfertigkeit, gewandheit, koerperkraft, lebensPkte, astralPkte, aberglaube," +
-                    "koerperbeherrschung, selbstbeherrschung, aexteBeile, dolche, schwertSblEh, schwertSblZh, fechtwaffen, speerStab, stumpfEh, stumpfZh, armbrust, bogen," +
-                    "namensListe, klasse, kopfEq, brustEq, waffenhandEq, url, nebenhandEq, stufe, magieresistenz, ausdauer, attackeWert, paradeWert, fernkampfWert, ausweichWert)" +
-                    "VALUES(" + mut + "," + klugheit + "," + intuition + "," + charisma +"," + fingerfertigkeit + "," + gewandheit + "," + koerperkraft + "," +
+                    "ausdauer INT, attackeWert INT, paradeWert INT, fernkampfWert INT, ausweichWert INT, waffenhandEq VARCHAR(40), nebenhandEq VARCHAR(40), kopfEq VARCHAR(40)," +
+                    "brustEq VARCHAR(40), namensListe VARCHAR(200), url VARCHAR(70))");
+            stmt.executeQuery("INSERT INTO charakterRaw VALUES(" + mut + "," + klugheit + "," + intuition + "," + charisma +"," + fingerfertigkeit + "," + gewandheit + "," + koerperkraft + "," +
                     "" + lebensPkte + "," + astralPkte + "," + aberglaube + "," + koerperbeherrschung + "," + selbstbeherrschung + "," + aexteBeile + "," +
                     "" + dolche + "," + schwertSblEh + "," + schwertSblZh + "," + fechtwaffen + "," + speerStab + "," + stumpfEh + "," + stumpfZh + "," +
                     "" + armbrust + "," + bogen + ",'" + namensListe + "','" + klasse + "','" + kopfEq + "','" + brustEq + "','" + waffenhandEq + "','" + url + "','" +
                     "" + nebenhandEq + "'," + stufe + "," + magieresistenz + "," + ausdauer + "," + attackeWert + "," + paradeWert + "," + fernkampfWert + "," + ausweichWert + ")");
-            stmt.close();
             this.programController.getCharacterController().getCharacterView().getTxtAKonsole().append("charakter hinzugefügt.\n");
         }
         catch(SQLException e)
@@ -97,8 +90,23 @@ public class DBController
 
     }
 
-    public Connection getConnection()
+    public void closeConnection()
     {
-        return this.connection;
+        try
+        {
+            if(this.connection != null)
+            {
+                this.connection.close();
+                System.out.println("HSQLDB getrennt!");
+            }
+            else
+                System.out.println("Connection nicht gefunden oder nicht vorhanden!");
+            System.exit(0);
+        }
+        catch(SQLException sqlE)
+        {
+            System.out.println("Fehler beim Schließen der connection!");
+            System.exit(-1);
+        }
     }
 }

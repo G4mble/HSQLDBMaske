@@ -19,14 +19,18 @@ public class CharacterController implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if(e.getActionCommand().equals("add"))
-            this.addElement();
-        else if(e.getActionCommand().equals("reset"))
-            this.resetView();
-        else if(e.getActionCommand().equals("back"))
+        switch(e.getActionCommand())
         {
-            this.programController.backToMenu();
-            this.characterView.dispose();
+            case "add":
+                this.addElement();
+                break;
+            case "reset":
+                this.resetView();
+                break;
+            case "back":
+                this.programController.backToMenu();
+                this.characterView.dispose();
+                break;
         }
     }
 
