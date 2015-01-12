@@ -29,15 +29,21 @@ public class MenuView extends JFrame
         btnKreatur.setActionCommand("waffe");
         getContentPane().add(btnKreatur);
 
+        JButton btnAttributeTooltip = new JButton("attributeTooltip");
+        btnAttributeTooltip.setBounds(10, 143, 120, 33);
+        btnAttributeTooltip.addActionListener(paramProgramController);
+        btnAttributeTooltip.setActionCommand("attributeTooltip");
+        getContentPane().add(btnAttributeTooltip);
+
         JButton btnBeenden = new JButton("Beenden");
-        btnBeenden.setBounds(10, 143, 120, 33);
+        btnBeenden.setBounds(10, 187, 120, 33);
         btnBeenden.addActionListener(paramProgramController);
         btnBeenden.setActionCommand("beenden");
         getContentPane().add(btnBeenden);
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(new Dimension(145, 215));
+        this.setSize(new Dimension(145, 259));
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }

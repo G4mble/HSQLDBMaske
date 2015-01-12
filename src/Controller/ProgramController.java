@@ -8,13 +8,11 @@ import java.awt.event.ActionListener;
 public class ProgramController implements ActionListener
 {
     private MenuView menuView;
-    private DetailMapController detailMapController;
     private DBController dbController;
-    private CharacterController characterController;
 
     public ProgramController()
     {
-        this.dbController = new DBController(this);
+        this.dbController = DBController.getInstance();
         this.menuView = new MenuView(this);
     }
 
@@ -32,6 +30,9 @@ public class ProgramController implements ActionListener
             case "waffe":
                 this.waffe();
                 break;
+            case "attributeTooltip":
+                this.attributeTooltip();
+                break;
             case "beenden":
                 this.dbController.closeConnection();
                 break;
@@ -41,31 +42,26 @@ public class ProgramController implements ActionListener
 
     public void detailMap()
     {
-        this.detailMapController = new DetailMapController(this);
+        new DetailMapController(this);
     }
 
     public void charakter()
     {
-        this.characterController = new CharacterController(this);
+        new CharacterController(this);
     }
 
     public void waffe()
     {
     }
 
+    public void attributeTooltip()
+    {
+        new AttributeTooltipController(this);
+    }
+
     public void backToMenu()
     {
         this.menuView = new MenuView(this);
-    }
-
-    public DetailMapController getDetailMapController()
-    {
-        return this.detailMapController;
-    }
-
-    public CharacterController getCharacterController()
-    {
-        return this.characterController;
     }
 
     public DBController getDbController()

@@ -6,26 +6,13 @@ import java.sql.*;
 public class DBController
 {
     private Connection connection = null;
-    private ProgramController programController;
+    private static DBController currentDBController = null;
 
-    /*Lädt Treiberklasse
+    /**Lädt Treiberklasse
     * baut Verbindung zur DB auf
     * err.prinln sonst*/
-    public DBController(ProgramController paramProgramController)
+    private DBController()
     {
-        this.programController = paramProgramController;
-
-        try
-        {
-            Class.forName("org.hsqldb.jdbcDriver");
-            System.out.println("Treiberklasse geladen.");
-        }
-        catch (ClassNotFoundException cnfE)
-        {
-            JOptionPane.showMessageDialog(null, "ErrorMessage: " + cnfE.getMessage() + "\nExceptionType: ClassNotFoundException" +
-                    "\nTreiberklasse konnte nicht geladen werden!", "Fehler beim Laden der Datenbank", JOptionPane.ERROR_MESSAGE);
-            this.closeConnection();
-        }
         try
         {
             this.connection = DriverManager.getConnection("jdbc:hsqldb:file:data\\common\\db;ifexists=true;shutdown=true", "root", "");
@@ -40,21 +27,30 @@ public class DBController
         }
     }
 
-    public void addDetailMap(String paramName, String paramUrl, String paramPos)
+    /**Gibt das aktuelle DBController Objekt zurück
+     * Erzeugt neuen DBController wenn currentDBController == null*/
+    public static DBController getInstance()
+    {
+        if(currentDBController == null)
+            currentDBController = new DBController();
+        return currentDBController;
+    }
+
+    public boolean addDetailMap(String paramName, String paramUrl, String paramPos)
     {
         try(Statement stmt = this.connection.createStatement())
         {
-            stmt.executeQuery("CREATE TABLE IF NOT EXISTS detailMap (name VARCHAR(30), url VARCHAR(70), position VARCHAR(10 0), PRIMARY KEY(name))");
-            stmt.executeQuery("INSERT INTO detailMap VALUES('" + paramName + "', '" + paramUrl + "', '" + paramPos + "')");
-            this.programController.getDetailMapController().getDetailMapView().getTxtrConsole().append("detailMap hinzugefügt.\n");
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS detailMap (name VARCHAR(30), url VARCHAR(70), position VARCHAR(10 0), PRIMARY KEY(name))");
+            stmt.executeUpdate("INSERT INTO detailMap VALUES('" + paramName + "', '" + paramUrl + "', '" + paramPos + "')");
+            return true;
         }
         catch(SQLException sqlE)
         {
-            this.programController.getDetailMapController().getDetailMapView().getTxtrConsole().append("Fehler beim Hinzufügen von detailMap!\n");
+            return false;
         }
     }
 
-    public void addCharakter(int mut, int klugheit, int intuition, int charisma, int fingerfertigkeit, int gewandheit, int koerperkraft, int lebensPkte, int astralPkte, int aberglaube,
+    public boolean addCharakter(int mut, int klugheit, int intuition, int charisma, int fingerfertigkeit, int gewandheit, int koerperkraft, int lebensPkte, int astralPkte, int aberglaube,
             int koerperbeherrschung, int selbstbeherrschung, int aexteBeile, int dolche, int schwertSblEh, int schwertSblZh, int fechtwaffen, int speerStab, int stumpfEh, int stumpfZh,
             int armbrust, int bogen, String namensListe, String klasse, String kopfEq, String brustEq, String waffenhandEq, String nebenhandEq, String url)
     {
@@ -71,23 +67,36 @@ public class DBController
 
         try(Statement stmt = this.connection.createStatement())
         {
-            stmt.executeQuery("CREATE TABLE IF NOT EXISTS charakterRaw (charID INT IDENTITY, klasse VARCHAR(30),lebensPkte INT, astralPkte INT, mut INT, klugheit INT, intuition INT," +
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS charakterRaw (charID INT IDENTITY, klasse VARCHAR(30),lebensPkte INT, astralPkte INT, mut INT, klugheit INT, intuition INT," +
                     "charisma INT, fingerfertigkeit INT, gewandheit INT, koerperkraft INT, aberglaube INT, koerperbeherrschung INT, selbstbeherrschung INT, aexteBeile INT, dolche INT," +
                     "schwertSblEh INT, schwertSblZh INT, fechtwaffen INT, speerStab INT, stumpfEh INT, stumpfZh INT, armbrust INT, bogen INT, stufe INT, magieresistenz INT," +
                     "ausdauer INT, attackeWert INT, paradeWert INT, fernkampfWert INT, ausweichWert INT, waffenhandEq VARCHAR(40), nebenhandEq VARCHAR(40), kopfEq VARCHAR(40)," +
                     "brustEq VARCHAR(40), namensListe VARCHAR(200), url VARCHAR(70))");
-            stmt.executeQuery("INSERT INTO charakterRaw VALUES(" + mut + "," + klugheit + "," + intuition + "," + charisma +"," + fingerfertigkeit + "," + gewandheit + "," + koerperkraft + "," +
+            stmt.executeUpdate("INSERT INTO charakterRaw VALUES(" + mut + "," + klugheit + "," + intuition + "," + charisma + "," + fingerfertigkeit + "," + gewandheit + "," + koerperkraft + "," +
                     "" + lebensPkte + "," + astralPkte + "," + aberglaube + "," + koerperbeherrschung + "," + selbstbeherrschung + "," + aexteBeile + "," +
                     "" + dolche + "," + schwertSblEh + "," + schwertSblZh + "," + fechtwaffen + "," + speerStab + "," + stumpfEh + "," + stumpfZh + "," +
                     "" + armbrust + "," + bogen + ",'" + namensListe + "','" + klasse + "','" + kopfEq + "','" + brustEq + "','" + waffenhandEq + "','" + url + "','" +
                     "" + nebenhandEq + "'," + stufe + "," + magieresistenz + "," + ausdauer + "," + attackeWert + "," + paradeWert + "," + fernkampfWert + "," + ausweichWert + ")");
-            this.programController.getCharacterController().getCharacterView().getTxtAKonsole().append("charakter hinzugefügt.\n");
+            return true;
         }
         catch(SQLException e)
         {
-            this.programController.getCharacterController().getCharacterView().getTxtAKonsole().append("Fehler beim Hinzufügen von charakter!\n");
+           return false;
         }
 
+    }
+
+    public boolean addAttributeTooltip(String paramName, String paramText)
+    {
+        try(Statement stmt = this.connection.createStatement())
+        {
+            stmt.executeUpdate("INSERT INTO attributeTooltip VALUES('" + paramName + "','" + paramText + "')");
+            return true;
+        }
+        catch(SQLException sqlE)
+        {
+            return false;
+        }
     }
 
     public void closeConnection()

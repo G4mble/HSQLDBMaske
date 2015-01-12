@@ -25,32 +25,24 @@ public class DetailMapController implements ActionListener
                 this.addElement();
                 break;
             case "reset":
-                this.resetView();
+                this.reset();
                 break;
             case "back":
-                this.programController.backToMenu();
                 this.detailMapView.dispose();
+                this.programController.backToMenu();
                 break;
         }
     }
 
     public void addElement()
     {
-        String name = "detail_" + this.detailMapView.getTxtfName().getText();
-        String url = "data//img//map//detail//detailMap_" + this.detailMapView.getTxtfName().getText() + ".png";
-        String pos = this.detailMapView.getTxtrPositionen().getText();
-        this.programController.getDbController().addDetailMap(name, url,  pos);
+        String name = "detail_" + this.detailMapView.getName();
+        String url = "data//img//map//detail//detailMap_" + this.detailMapView.getName() + ".png";
+        this.detailMapView.continueAfterInsert(this.programController.getDbController().addDetailMap(name, url,  this.detailMapView.getPositionen()));
     }
 
-    public void resetView()
+    public void reset()
     {
-        this.detailMapView.getTxtfName().setText("");
-        this.detailMapView.getTxtrPositionen().setText("");
-        this.detailMapView.getTxtrConsole().setText("Reset erfolgreich.");
-    }
-
-    public DetailMapView getDetailMapView()
-    {
-        return this.detailMapView;
+        this.detailMapView.resetView();
     }
 }

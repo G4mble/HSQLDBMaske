@@ -384,153 +384,158 @@ public class CharacterView extends JFrame
         this.setVisible(true);
     }
 
-    public JTextField getTxtfKlasse()
+    public void continueAfterInsert(boolean tmpState)
     {
-        return this.txtfKlasse;
+        String message;
+        if(tmpState)
+            message = "Charakter erfolgreich hinzugefügt!";
+        else
+            message = "Fehler beim Hinzufügen von Charakter!";
+        this.txtAKonsole.setText(message);
     }
 
-    public JTextField getTxtfKopf()
+    public String getKlasse()
     {
-        return this.txtfKopf;
+        return this.txtfKlasse.getText();
     }
 
-    public JTextField getTxtfBrust()
+    public String getKopf()
     {
-        return this.txtfBrust;
+        return this.txtfKopf.getText();
     }
 
-    public JTextField getTxtfWaffenhand()
+    public String getBrust()
     {
-        return this.txtfWaffenhand;
+        return this.txtfBrust.getText();
     }
 
-    public JTextField getTxtfNebenhand()
+    public String getWaffenhand()
     {
-        return this.txtfNebenhand;
+        return this.txtfWaffenhand.getText();
     }
 
-    public JTextField getTxtfUrl()
+    public String getNebenhand()
     {
-        return this.txtfUrl;
+        return this.txtfNebenhand.getText();
     }
 
-    public JTextArea getTxtAName()
+    public String getUrl()
     {
-        return this.txtAName;
+        return this.txtfUrl.getText();
     }
 
-    public JTextArea getTxtAKonsole()
+    public String getCharName()
     {
-        return this.txtAKonsole;
+        return this.txtAName.getText();
     }
 
-    public JSpinner getSpinnerLebenspunkte()
+    public Object getLebenspunkte()
     {
-        return this.spinnerLebenspunkte;
+        return this.spinnerLebenspunkte.getValue();
     }
 
-    public JSpinner getSpinnerAstralpunkte()
+    public Object getAstralpunkte()
     {
-        return this.spinnerAstralpunkte;
+        return this.spinnerAstralpunkte.getValue();
     }
 
-    public JSpinner getSpinnerMut()
+    public Object getMut()
     {
-        return this.spinnerMut;
+        return this.spinnerMut.getValue();
     }
 
-    public JSpinner getSpinnerKlugheit()
+    public Object getKlugheit()
     {
-        return this.spinnerKlugheit;
+        return this.spinnerKlugheit.getValue();
     }
 
-    public JSpinner getSpinnerIntuition()
+    public Object getIntuition()
     {
-        return this.spinnerIntuition;
+        return this.spinnerIntuition.getValue();
     }
 
-    public JSpinner getSpinnerCharisma()
+    public Object getCharisma()
     {
-        return this.spinnerCharisma;
+        return this.spinnerCharisma.getValue();
     }
 
-    public JSpinner getSpinnerFingerfertigkeit()
+    public Object getFingerfertigkeit()
     {
-        return this.spinnerFingerfertigkeit;
+        return this.spinnerFingerfertigkeit.getValue();
     }
 
-    public JSpinner getSpinnerGewandheit()
+    public Object getGewandheit()
     {
-        return this.spinnerGewandheit;
+        return this.spinnerGewandheit.getValue();
     }
 
-    public JSpinner getSpinnerKoerperkraft()
+    public Object getKoerperkraft()
     {
-        return this.spinnerKoerperkraft;
+        return this.spinnerKoerperkraft.getValue();
     }
 
-    public JSpinner getSpinnerKoerperbeherrschung()
+    public Object getKoerperbeherrschung()
     {
-        return this.spinnerKoerperbeherrschung;
+        return this.spinnerKoerperbeherrschung.getValue();
     }
 
-    public JSpinner getSpinnerSelbstbeherrschung()
+    public Object getSelbstbeherrschung()
     {
-        return this.spinnerSelbstbeherrschung;
+        return this.spinnerSelbstbeherrschung.getValue();
     }
 
-    public JSpinner getSpinnerAexteBeile()
+    public Object getAexteBeile()
     {
-        return this.spinnerAexteBeile;
+        return this.spinnerAexteBeile.getValue();
     }
 
-    public JSpinner getSpinnerFechtwaffen()
+    public Object getFechtwaffen()
     {
-        return this.spinnerFechtwaffen;
+        return this.spinnerFechtwaffen.getValue();
     }
 
-    public JSpinner getSpinnerDolche()
+    public Object getDolche()
     {
-        return this.spinnerDolche;
+        return this.spinnerDolche.getValue();
     }
 
-    public JSpinner getSpinnerArmbrust()
+    public Object getArmbrust()
     {
-        return this.spinnerArmbrust;
+        return this.spinnerArmbrust.getValue();
     }
 
-    public JSpinner getSpinnerBogen()
+    public Object getBogen()
     {
-        return this.spinnerBogen;
+        return this.spinnerBogen.getValue();
     }
 
-    public JSpinner getSpinnerSchwertSblEh()
+    public Object getSchwertSblEh()
     {
-        return this.spinnerSchwertSblEh;
+        return this.spinnerSchwertSblEh.getValue();
     }
 
-    public JSpinner getSpinnerSchwertSblZh()
+    public Object getSchwertSblZh()
     {
-        return this.spinnerSchwertSblZh;
+        return this.spinnerSchwertSblZh.getValue();
     }
 
-    public JSpinner getSpinnerStumpfEh()
+    public Object getStumpfEh()
     {
-        return this.spinnerStumpfEh;
+        return this.spinnerStumpfEh.getValue();
     }
 
-    public JSpinner getSpinnerStumpfZh()
+    public Object getStumpfZh()
     {
-        return this.spinnerStumpfZh;
+        return this.spinnerStumpfZh.getValue();
     }
 
-    public JSpinner getSpinnerSpeerStab()
+    public Object getSpeerStab()
     {
-        return this.spinnerSpeerStab;
+        return this.spinnerSpeerStab.getValue();
     }
 
-    public JSpinner getSpinnerAberglaube()
+    public Object getAberglaube()
     {
-        return this.spinnerAberglaube;
+        return this.spinnerAberglaube.getValue();
     }
 }

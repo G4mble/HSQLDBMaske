@@ -28,8 +28,8 @@ public class CharacterController implements ActionListener
                 this.resetView();
                 break;
             case "back":
-                this.programController.backToMenu();
                 this.characterView.dispose();
+                this.programController.backToMenu();
                 break;
         }
     }
@@ -42,43 +42,38 @@ public class CharacterController implements ActionListener
 
     public void addElement()
     {
-        int lebensPkte = Integer.parseInt(this.characterView.getSpinnerLebenspunkte().getValue().toString());
-        int astralPkte = Integer.parseInt(this.characterView.getSpinnerAstralpunkte().getValue().toString());
-        String namensListe = this.characterView.getTxtAName().getText();
-        String klasse = this.characterView.getTxtfKlasse().getText();
-        String kopfEq = this.characterView.getTxtfKopf().getText();
-        String brustEq = this.characterView.getTxtfBrust().getText();
-        String waffenhandEq = this.characterView.getTxtfWaffenhand().getText();
-        String nebenhandEq = this.characterView.getTxtfNebenhand().getText();
-        String url = "data\\img\\tiles\\char\\" + this.characterView.getTxtfUrl().getText() + ".png";
-        int mut = Integer.parseInt(this.characterView.getSpinnerMut().getValue().toString());
-        int klugheit = Integer.parseInt(this.characterView.getSpinnerKlugheit().getValue().toString());
-        int intuition = Integer.parseInt(this.characterView.getSpinnerIntuition().getValue().toString());
-        int charisma = Integer.parseInt(this.characterView.getSpinnerCharisma().getValue().toString());
-        int fingerfertigkeit = Integer.parseInt(this.characterView.getSpinnerFingerfertigkeit().getValue().toString());
-        int gewandheit = Integer.parseInt(this.characterView.getSpinnerGewandheit().getValue().toString());
-        int koerperkraft = Integer.parseInt(this.characterView.getSpinnerKoerperkraft().getValue().toString());
-        int aberglaube = Integer.parseInt(this.characterView.getSpinnerAberglaube().getValue().toString());
-        int koerperbeherrschung = Integer.parseInt(this.characterView.getSpinnerKoerperbeherrschung().getValue().toString());
-        int selbstbeherrschung = Integer.parseInt(this.characterView.getSpinnerSelbstbeherrschung().getValue().toString());
-        int aexteBeile = Integer.parseInt(this.characterView.getSpinnerAexteBeile().getValue().toString());
-        int dolche = Integer.parseInt(this.characterView.getSpinnerDolche().getValue().toString());
-        int schwertSblEh = Integer.parseInt(this.characterView.getSpinnerSchwertSblEh().getValue().toString());
-        int schwertSblZh = Integer.parseInt(this.characterView.getSpinnerSchwertSblZh().getValue().toString());
-        int fechtwaffen = Integer.parseInt(this.characterView.getSpinnerFechtwaffen().getValue().toString());
-        int speerStab = Integer.parseInt(this.characterView.getSpinnerSpeerStab().getValue().toString());
-        int stumpfEh = Integer.parseInt(this.characterView.getSpinnerStumpfEh().getValue().toString());
-        int stumpfZh = Integer.parseInt(this.characterView.getSpinnerStumpfZh().getValue().toString());
-        int armbrust = Integer.parseInt(this.characterView.getSpinnerArmbrust().getValue().toString());
-        int bogen = Integer.parseInt(this.characterView.getSpinnerBogen().getValue().toString());
+        int lebensPkte = Integer.parseInt(this.characterView.getLebenspunkte().toString());
+        int astralPkte = Integer.parseInt(this.characterView.getAstralpunkte().toString());
+        String namensListe = this.characterView.getCharName();
+        String klasse = this.characterView.getKlasse();
+        String kopfEq = this.characterView.getKopf();
+        String brustEq = this.characterView.getBrust();
+        String waffenhandEq = this.characterView.getWaffenhand();
+        String nebenhandEq = this.characterView.getNebenhand();
+        String url = "data\\img\\tiles\\char\\" + this.characterView.getUrl() + ".png";
+        int mut = Integer.parseInt(this.characterView.getMut().toString());
+        int klugheit = Integer.parseInt(this.characterView.getKlugheit().toString());
+        int intuition = Integer.parseInt(this.characterView.getIntuition().toString());
+        int charisma = Integer.parseInt(this.characterView.getCharisma().toString());
+        int fingerfertigkeit = Integer.parseInt(this.characterView.getFingerfertigkeit().toString());
+        int gewandheit = Integer.parseInt(this.characterView.getGewandheit().toString());
+        int koerperkraft = Integer.parseInt(this.characterView.getKoerperkraft().toString());
+        int aberglaube = Integer.parseInt(this.characterView.getAberglaube().toString());
+        int koerperbeherrschung = Integer.parseInt(this.characterView.getKoerperbeherrschung().toString());
+        int selbstbeherrschung = Integer.parseInt(this.characterView.getSelbstbeherrschung().toString());
+        int aexteBeile = Integer.parseInt(this.characterView.getAexteBeile().toString());
+        int dolche = Integer.parseInt(this.characterView.getDolche().toString());
+        int schwertSblEh = Integer.parseInt(this.characterView.getSchwertSblEh().toString());
+        int schwertSblZh = Integer.parseInt(this.characterView.getSchwertSblZh().toString());
+        int fechtwaffen = Integer.parseInt(this.characterView.getFechtwaffen().toString());
+        int speerStab = Integer.parseInt(this.characterView.getSpeerStab().toString());
+        int stumpfEh = Integer.parseInt(this.characterView.getStumpfEh().toString());
+        int stumpfZh = Integer.parseInt(this.characterView.getStumpfZh().toString());
+        int armbrust = Integer.parseInt(this.characterView.getArmbrust().toString());
+        int bogen = Integer.parseInt(this.characterView.getBogen().toString());
 
-        this.programController.getDbController().addCharakter(mut, klugheit, intuition, charisma, fingerfertigkeit, gewandheit, koerperkraft, lebensPkte, astralPkte, aberglaube,
+        this.characterView.continueAfterInsert(this.programController.getDbController().addCharakter(mut, klugheit, intuition, charisma, fingerfertigkeit, gewandheit, koerperkraft, lebensPkte, astralPkte, aberglaube,
                 koerperbeherrschung, selbstbeherrschung, aexteBeile, dolche, schwertSblEh, schwertSblZh, fechtwaffen, speerStab, stumpfEh, stumpfZh, armbrust, bogen, namensListe, klasse,
-                kopfEq, brustEq, waffenhandEq, nebenhandEq, url);
-    }
-
-    public CharacterView getCharacterView()
-    {
-        return this.characterView;
+                kopfEq, brustEq, waffenhandEq, nebenhandEq, url));
     }
 }

@@ -88,18 +88,31 @@ public class DetailMapView extends JFrame
         this.setVisible(true);
     }
 
-    public JTextField getTxtfName()
+    public String getName()
     {
-        return this.txtfName;
+        return this.txtfName.getText();
     }
 
-    public JTextArea getTxtrConsole()
+    public String getPositionen()
     {
-        return this.txtrConsole;
+        return this.txtrPositionen.getText();
     }
 
-    public JTextArea getTxtrPositionen()
+    public void resetView()
     {
-        return this.txtrPositionen;
+        this.txtfName.setText("");
+        this.txtrPositionen.setText("");
+        this.txtfName.requestFocus();
+        this.txtrConsole.setText("Reset erfolgreich.");
+    }
+
+    public void continueAfterInsert(boolean paramState)
+    {
+        String message;
+        if(paramState)
+            message = "detailMap erfolgreich hinzugefügt!";
+        else
+            message = "Fehler beim Hinzufügen von detailMap!";
+        this.txtrConsole.setText(message);
     }
 }
