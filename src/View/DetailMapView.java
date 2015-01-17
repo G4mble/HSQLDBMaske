@@ -25,12 +25,16 @@ public class DetailMapView extends JFrame
 
         txtrPositionen = new JTextArea();
         txtrPositionen.setBounds(194, 57, 80, 182);
+        this.txtrPositionen.setLineWrap(true);
+        this.txtrPositionen.setWrapStyleWord(true);
         txtrPositionen.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtrPositionen);
 
         txtrConsole = new JTextArea();
         txtrConsole.setBounds(10, 86, 154, 153);
         txtrConsole.setEditable(false);
+        txtrConsole.setLineWrap(true);
+        txtrConsole.setWrapStyleWord(true);
         txtrConsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         getContentPane().add(txtrConsole);
 

@@ -3,6 +3,7 @@ package View;
 import Controller.AttributeTooltipController;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.Dimension;
 
 
@@ -13,8 +14,9 @@ public class AttributeTooltipView extends JFrame
 
     public AttributeTooltipView(AttributeTooltipController paramAttributeTooltipController)
     {
-        txtfName = new JTextField();
-        txtfName.setBounds(66, 11, 86, 20);
+        this.txtfName = new JTextField();
+        this.txtfName.setBounds(66, 11, 86, 20);
+        this.txtfName.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         this.getContentPane().add(txtfName);
 
         JLabel lblName = new JLabel("Name:");
@@ -52,12 +54,14 @@ public class AttributeTooltipView extends JFrame
         this.txtaConsole.setLineWrap(true);
         this.txtaConsole.setWrapStyleWord(true);
         this.txtaConsole.setBounds(20, 218, 274, 100);
+        this.txtaConsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         this.getContentPane().add(this.txtaConsole);
 
         this.txtaTooltipText = new JTextArea();
         this.txtaTooltipText.setLineWrap(true);
         this.txtaTooltipText.setWrapStyleWord(true);
         this.txtaTooltipText.setBounds(66, 51, 228, 122);
+        this.txtaTooltipText.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         this.getContentPane().add(this.txtaTooltipText);
 
         this.setSize(new Dimension(310, 357));
