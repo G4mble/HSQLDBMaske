@@ -49,11 +49,17 @@ public class AttributeTooltipView extends JFrame
         btnBack.addActionListener(paramAttributeTooltipController);
         this.getContentPane().add(btnBack);
 
+        JButton btnUpdate = new JButton("update");
+        btnUpdate.setBounds(10, 212, 89, 23);
+        btnUpdate.setActionCommand("update");
+        btnUpdate.addActionListener(paramAttributeTooltipController);
+        getContentPane().add(btnUpdate);
+
         this.txtaConsole = new JTextArea();
         this.txtaConsole.setEditable(false);
         this.txtaConsole.setLineWrap(true);
         this.txtaConsole.setWrapStyleWord(true);
-        this.txtaConsole.setBounds(20, 218, 274, 100);
+        this.txtaConsole.setBounds(20, 240, 274, 100);
         this.txtaConsole.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         this.getContentPane().add(this.txtaConsole);
 
@@ -64,7 +70,7 @@ public class AttributeTooltipView extends JFrame
         this.txtaTooltipText.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
         this.getContentPane().add(this.txtaTooltipText);
 
-        this.setSize(new Dimension(310, 357));
+        this.setSize(new Dimension(310, 379));
         this.getContentPane().setLayout(null);
         this.setResizable(false);
         this.setTitle("attributeTooltip_template");

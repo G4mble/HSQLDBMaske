@@ -99,6 +99,19 @@ public class DBController
         }
     }
 
+    public boolean updateAttributeTooltip(String paramName, String paramText)
+    {
+        try(Statement stmt = this.connection.createStatement())
+        {
+            stmt.executeUpdate("UPDATE attributeTooltip SET tooltipText = '" + paramText + "' WHERE name = '" + paramName + "'");
+            return true;
+        }
+        catch(SQLException sqlE)
+        {
+            return false;
+        }
+    }
+
     public void closeConnection()
     {
         try

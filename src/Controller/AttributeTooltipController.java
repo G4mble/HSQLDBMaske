@@ -26,6 +26,16 @@ public class AttributeTooltipController implements ActionListener
             this.attributeTooltipView.printLengthError();
     }
 
+    public void updateTooltip()
+    {
+        String tmpAttributeTooltipText = this.attributeTooltipView.getTooltipText();
+        String tmpAttributeTooltipName = this.attributeTooltipView.geTooltipName();
+        if((tmpAttributeTooltipName.length() <= 40) && (tmpAttributeTooltipName.length() > 0) && (tmpAttributeTooltipText.length() <= 1000) && (tmpAttributeTooltipText.length() > 0))
+            this.attributeTooltipView.continueAfterInsert(this.programController.getDbController().updateAttributeTooltip(tmpAttributeTooltipName, tmpAttributeTooltipText));
+        else
+            this.attributeTooltipView.printLengthError();
+    }
+
     public void resetView()
     {
         this.attributeTooltipView.resetView();
@@ -41,6 +51,9 @@ public class AttributeTooltipController implements ActionListener
                 break;
             case "reset":
                 this.resetView();
+                break;
+            case "update":
+                this.updateTooltip();
                 break;
             case "back":
                 this.attributeTooltipView.dispose();
